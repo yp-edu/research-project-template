@@ -1,3 +1,7 @@
+make install:
+	@uv run pre-commit install
+	@uv sync
+
 .PHONY: checks
 checks:
 	@uv run pre-commit run --all-files

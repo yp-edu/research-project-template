@@ -12,6 +12,7 @@ from loguru import logger
 import hydra
 from omegaconf import DictConfig
 
+
 @hydra.main(config_path="../configs", config_name="demo.yaml")
 def main(cfg: DictConfig):
     logger.info(f"This is a demo script with an important parameter: {cfg.important_config_parameter}")

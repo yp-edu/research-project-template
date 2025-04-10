@@ -12,4 +12,5 @@ test-assets:
 
 .PHONY: tests
 tests:
-	@echo "No tests to run"
+	@uv pip install -e .
+	@uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v

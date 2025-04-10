@@ -1,3 +1,7 @@
 {
-    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/latex/build/"
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/latex/build/",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ]
 }

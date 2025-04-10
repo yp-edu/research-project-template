@@ -1,4 +1,5 @@
-make install:
+.PHONY: install
+install:
 	@uv run pre-commit install
 	@uv sync
 

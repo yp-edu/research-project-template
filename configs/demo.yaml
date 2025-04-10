@@ -1,1 +1,5 @@
 important_parameter: 42
+
+hydra:
+  run:
+    dir: results/hydra/${hydra.job.name}/${now:%Y-%m-%d_%H-%M-%S}

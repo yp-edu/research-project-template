@@ -1,10 +1,10 @@
 # Paper Template
 
-[![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/Xmaster6y/lczerolens/blob/main/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/yp-edu/paper-template/blob/main/LICENSE)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![python versions](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/downloads/)
-![ci](https://github.com/Xmaster6y/lczerolens/actions/workflows/ci.yml/badge.svg)
+![ci](https://github.com/yp-edu/paper-template/actions/workflows/ci.yml/badge.svg)
 
 KISS paper template built for Cursor IDE, for Python and LaTeX.
 

@@ -12,9 +12,11 @@ KISS paper template built for Cursor IDE, for Python and LaTeX.
 
 This repo assumes you are using Cursor IDE, hence the `.cursorrules` file, which you should tailor to your needs.
 
-## Latex Config
+## Latex Workshop Config
 
-Latex workshop outdir: `%WORKSPACE_FOLDER%/latex/build/`
+Download the latex workshop extension from [here](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
+
+This project uses the following latex workshop outdir: `%WORKSPACE_FOLDER%/latex/build/`
 
 ## Python Config
 

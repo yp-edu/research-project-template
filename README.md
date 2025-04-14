@@ -6,7 +6,7 @@
 [![python versions](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/downloads/)
 ![ci](https://github.com/yp-edu/paper-template/actions/workflows/ci.yml/badge.svg)
 
-KISS paper template built for Cursor IDE, for Python and LaTeX.
+KISS paper template built for Cursor IDE, Python and LaTeX.
 
 ## AI Config
 

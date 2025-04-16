@@ -10,7 +10,9 @@ KISS paper template built for Cursor IDE, Python and LaTeX.
 
 ## AI Config
 
-This repo assumes you are using Cursor IDE, hence the `.cursorrules` file, which you should tailor to your needs.
+This repo assumes you are using Cursor IDE, hence the [`.cursorrules`](.cursorrules) file, which you should tailor to your needs.
+
+You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json), be sure to check the `--storage-path` of the `arxiv-mcp-server`. You can find more MCP servers in [Playbooks](https://playbooks.com/) or [Smithery](https://smithery.ai/).
 
 ## Latex Workshop Config
 

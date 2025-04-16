@@ -129,8 +129,8 @@ dmypy.json
 *.pkl
 
 # Various files
-ignored
-debug
+ignored*
+debug*
 *.zip
 lc0
 !bin/lc0

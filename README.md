@@ -16,9 +16,13 @@ You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json), be
 
 ## Latex Workshop Config
 
-Download the latex workshop extension from [here](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
+After setting-up Latex (e.g. with TeX Live), download the latex workshop extension from [here](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
 
-This project uses the following latex workshop outdir: `%WORKSPACE_FOLDER%/latex/build/`
+This project uses the following latex workshop outdir: `%WORKSPACE_FOLDER%/latex/build/`.
+
+## Typst Config
+
+After setting up Typst, use `typst watch typst/main.typ typst/main.pdf` to instantly compile the project. Tinymist Typst VSCode extension is recommended.
 
 ## Python Config
 

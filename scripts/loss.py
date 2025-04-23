@@ -13,10 +13,12 @@ import hydra
 from omegaconf import DictConfig, OmegaConf
 import wandb
 
+from paper_template.core import loss_function
+
 
 @hydra.main(config_path="../configs", config_name="loss.yaml", version_base=None)
 def main(cfg: DictConfig):
-    loss = cfg.param_group.x**2 + cfg.param_group.y**2
+    loss = loss_function(cfg.param_group.x, cfg.param_group.y)
 
     dict_config = OmegaConf.to_container(cfg, resolve=True, throw_on_missing=True)
     with wandb.init(

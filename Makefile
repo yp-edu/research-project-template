@@ -1,14 +1,11 @@
 .PHONY: install
 install:
-	@echo "> uv run pre-commit install"
-	@uv run pre-commit install
-	@echo "> uv sync"
-	@uv sync
+	uv run pre-commit install
+	uv sync
 
 .PHONY: checks
 checks:
-	@echo "> uv run pre-commit run --all-files"
-	@uv run pre-commit run --all-files
+	uv run pre-commit run --all-files
 
 .PHONY: test-assets
 test-assets:
@@ -16,12 +13,8 @@ test-assets:
 
 .PHONY: tests
 tests:
-	@echo "> uv pip install -e ."
-	@uv pip install -e .
-	@echo "> uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v"
-	@uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
+	uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
 
 .PHONY: sync
 sync:
-	@echo "uv run wandb sync --sync-all"
-	@uv run wandb sync --sync-all
+	uv run wandb sync --sync-all

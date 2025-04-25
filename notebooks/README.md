@@ -1,6 +1,6 @@
 # Cluster JupyterHub
 
-Opinionated guide to run notebooks on a cluster that hosts a JupyterHub, e.g. like JeanZay.
+Opinionated guide to run notebooks on a cluster that hosts a JupyterHub, e.g. JeanZay.
 
 ## Connect to JupyterHub
 

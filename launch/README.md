@@ -1,6 +1,6 @@
 # Cluster Launch
 
-Opinionated guide to launch scripts on a cluster that uses Slurm and Conda, e.g. like JeanZay.
+Opinionated guide to launch scripts on a cluster that uses Slurm and Conda, e.g. JeanZay.
 
 ## Setup Git
 

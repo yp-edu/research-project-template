@@ -28,7 +28,14 @@ After setting up Typst, use `typst watch typst/main.typ typst/main.pdf` to insta
 
 ## Python Config
 
-Using `uv` to manage python dependencies.
+Using `uv` to manage python dependencies and run scripts.
+
+## Cluster Config
+
+This project is cluster-ready.
+
+- See [`launch`](./launch/) to launch scripts with slurm.
+- See [`notebooks`](./notebooks/) to run notebooks on a cluster's JupyterHub.
 
 ## Variables
 

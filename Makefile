@@ -15,6 +15,6 @@ test-assets:
 tests:
 	uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
 
-.PHONY: sync
-sync:
-	uv run wandb sync --sync-all
+.PHONY: wandb-sync
+wandb-sync:
+	uv run --no-sync wandb sync --sync-all

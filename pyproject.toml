@@ -23,6 +23,9 @@ scripts = [
     "loguru>=0.7.3",
     "wandb>=0.19.9",
 ]
+notebooks = [
+    "ipykernel>=6.29.5",
+]
 
 [build]
 target-dir = "build/dist"

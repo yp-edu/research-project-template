@@ -1,6 +1,6 @@
 # Cluster Launch
 
-Opinionated guide to setup a classical cluster that uses Slurm and Conda.
+Opinionated guide to setup scripts launch on a cluster that uses Slurm and Conda.
 
 ## Setup Git
 

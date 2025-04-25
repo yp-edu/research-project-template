@@ -51,3 +51,9 @@ As mentionned in the guide, kernels should be installed to `.ipython/kernels`. F
 ```bash
 source notebooks/create-kernel.sh
 ```
+
+Finally remove the kernel when done (and the `.venv` if you want to save inodes):
+
+```
+uv run jupyter kernelspec uninstall paper-template
+```

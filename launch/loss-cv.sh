@@ -7,8 +7,8 @@
 #SBATCH --gpus-per-node=a100_7g.80gb:1
 #SBATCH --time=3600
 #SBATCH --mail-type=ALL
-#SBATCH --output=%x-%j.out
-#SBATCH --error=%x-%j.err
+#SBATCH --output=results/slurm/%x-%j.out
+#SBATCH --error=results/slurm/%x-%j.err
 
 module purge
 uv run --no-sync python -m scripts.loss

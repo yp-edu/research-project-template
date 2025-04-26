@@ -7,8 +7,12 @@ on:
       - main
 
 jobs:
-  ci-python-3_11:
+  ci:
     runs-on: ubuntu-latest
+    matrix:
+      python-version:
+        - "3.11"
+        - "3.12"
     environment: ci
     timeout-minutes: 10
     steps:
@@ -17,7 +21,7 @@ jobs:
       uses: astral-sh/setup-uv@v5
     - name: Install dependencies
       run: |
-        uv sync --python 3.11 --locked
+        uv sync --python ${{ matrix.python-version }} --locked
     - name: Run checks
       run: |
         make checks

@@ -1,7 +1,7 @@
 [project]
-name = "paper-template"
+name = "research-project-template"
 version = "0.1.0"
-description = "KISS paper template built for Cursor IDE."
+description = "KISS research project template built for Cursor IDE."
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [

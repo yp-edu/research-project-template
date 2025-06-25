@@ -1,3 +1,7 @@
+defaults:
+  - group2: nested/first
+  - _self_
+
 important_parameter: 42
 
 hydra:

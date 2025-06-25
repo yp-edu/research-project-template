@@ -31,7 +31,7 @@ Contrary to the guide I propose to base the kernel on the `.venv` managed by `uv
 In order to install your project's kernel, simply run:
 
 ```bash
-uv run python -m ipykernel install --user --name=paper-template --display-name "🔬 Paper Template"
+uv run python -m ipykernel install --user --name=research-project-template --display-name "🔬 Research Project Template"
 ```
 
 The kernel will be installed in `.local/share/jupyter/kernels`, which you can see using:
@@ -43,7 +43,7 @@ uv run jupyter kernelspec list
 To test your kernel run:
 
 ```bash
-uv run jupyter console --kernel=paper-template # --debug
+uv run jupyter console --kernel=research-project-template # --debug
 ```
 
 As mentionned in the guide, kernels should be installed to `.ipython/kernels`. For that, modify the [`create-kernel.sh`](./create-kernel.sh) script to suite your project and run it:
@@ -55,5 +55,5 @@ source notebooks/create-kernel.sh
 Finally remove the kernel when done (and the `.venv` if you want to save inodes):
 
 ```
-uv run jupyter kernelspec uninstall paper-template
+uv run jupyter kernelspec uninstall research-project-template
 ```

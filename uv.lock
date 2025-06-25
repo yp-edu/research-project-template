@@ -814,7 +814,7 @@ wheels = [
 ]
 
 [[package]]
-name = "paper-template"
+name = "research-project-template"
 version = "0.1.0"
 source = { editable = "." }
 

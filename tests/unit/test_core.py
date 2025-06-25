@@ -1,6 +1,6 @@
 import pytest
 
-from paper_template.core import loss_function
+from research_project_template.core import loss_function
 
 
 @pytest.mark.unit

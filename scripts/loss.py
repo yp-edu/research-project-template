@@ -14,7 +14,7 @@ from omegaconf import DictConfig, OmegaConf
 import wandb
 import sys
 
-from paper_template.core import loss_function
+from research_project_template.core import loss_function
 
 
 @hydra.main(config_path="../configs", config_name="loss.yaml", version_base=None)

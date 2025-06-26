@@ -31,7 +31,7 @@ Contrary to the guide I propose to base the kernel on the `.venv` managed by `uv
 In order to install your project's kernel, simply run:
 
 ```bash
-uv run python -m ipykernel install --user --name=research-project-template --display-name "🔬 Research Project Template"
+uv run -m ipykernel install --user --name=research-project-template --display-name "🔬 Research Project Template"
 ```
 
 The kernel will be installed in `.local/share/jupyter/kernels`, which you can see using:

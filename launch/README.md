@@ -50,7 +50,7 @@ salloc --gpus 1 -A nwq@v100
 Run a job:
 
 ```bash
-srun uv run --no-sync python -m scripts.loss
+srun uv run --no-sync -m scripts.loss
 ```
 
 ## Launch Batched

@@ -4,7 +4,7 @@ Run a useless loss function script.
 Run with:
 
 ```bash
-uv run python -m scripts.loss -m
+uv run -m scripts.loss -m
 ```
 """
 

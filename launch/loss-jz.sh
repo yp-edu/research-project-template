@@ -10,4 +10,4 @@
 #SBATCH --account=nwq@v100
 
 module purge
-uv run --no-sync python -m scripts.loss
+uv run --no-sync -m scripts.loss

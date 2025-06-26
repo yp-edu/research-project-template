@@ -4,7 +4,7 @@ Run a useless demo script.
 Run with:
 
 ```bash
-uv run python -m scripts.demo
+uv run -m scripts.demo
 ```
 """
 

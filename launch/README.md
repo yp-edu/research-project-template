@@ -86,7 +86,7 @@ In order to monitor disk usage and inode usage, you can use `idr_quota_user` for
 
 ### Monitor Allocation
 
-In order to monitor your allocation usage, you can use `idracct` to monitor the allocation usage. You can separate per project (which you can get with `idrproj`) and different accounts, cf [this page](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-doc_account-eng.html).
+In order to monitor your allocation usage, you can use `idracct` to monitor the allocation usage. You can separate per project (which you can get with `idrproj`) and different accounts, cf [this page](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-doc_account-eng.html). You can also access the fair share ratio with `idr_compuse`.
 
 ### Monitor Job
 

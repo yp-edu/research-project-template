@@ -88,6 +88,17 @@ In order to monitor disk usage and inode usage, you can use `idr_quota_user` for
 
 In order to monitor your allocation usage, you can use `idracct` to monitor the allocation usage. You can separate per project (which you can get with `idrproj`) and different accounts, cf [this page](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-doc_account-eng.html). You can also access the fair share ratio with `idr_compuse`.
 
+It is more likely that you'll run out of inodes before you run out of disk space, especially if you're multiplying projects. To track where your inodes are you can use the following script ([cf](https://unix.stackexchange.com/questions/4105/how-do-i-count-all-the-files-recursively-through-directories)):
+
+```bash
+find . ! -name . -prune -type d -exec sh -c '
+  for dir do
+    dir="${dir#./}"
+    printf "%s:\t" "$dir"
+    find ".//$dir" -type f | grep -c //
+  done' sh {} +
+```
+
 ### Monitor Job
 
 In addition to interactive sessions (`srun`), you can also monitor your job by connecting to your allocated node(s) with `ssh`.

@@ -1,20 +1,21 @@
-.PHONY: install
 install:
 	uv run pre-commit install
 	uv sync
 
-.PHONY: checks
 checks:
 	uv run pre-commit run --all-files
 
-.PHONY: test-assets
 test-assets:
 	@echo "No test assets to resolve"
 
-.PHONY: tests
 tests:
 	uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
 
-.PHONY: wandb-sync
 wandb-sync:
 	uv run --no-sync wandb sync --sync-all
+
+launch cluster:
+    sbatch launch/loss-{{cluster}}.sh
+
+run script:
+    uv run -m scripts.{{script}}

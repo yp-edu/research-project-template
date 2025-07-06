@@ -30,6 +30,10 @@ After setting up Typst, use `typst watch typst/main.typ typst/main.pdf` to insta
 
 Using `uv` to manage python dependencies and run scripts.
 
+## Scripts
+
+This project uses [Just](https://github.com/casey/just) to manage scripts, refer to their instructions for installation.
+
 ## Cluster Config
 
 This project is cluster-ready.

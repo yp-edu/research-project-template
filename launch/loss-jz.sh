@@ -2,9 +2,12 @@
 
 #SBATCH --job-name=loss-jz
 #SBATCH --nodes=1
-#SBATCH --gpus=1
-#SBATCH --time=600
-#SBATCH --mail-type=ALL
+#SBATCH --ntasks-per-node=1
+#SBATCH --gres=gpu:1
+#SBATCH -C v100-16g
+#SBATCH --cpus-per-task=5
+#SBATCH --time=00:10:00
+#SBATCH --mail-type=FAIL
 #SBATCH --output=results/slurm/%x-%j.out
 #SBATCH --error=results/slurm/%x-%j.err
 #SBATCH --account=nwq@v100

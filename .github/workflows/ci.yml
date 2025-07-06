@@ -16,6 +16,10 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v4
+    - name: Install just
+      uses: extractions/setup-just@v3
+      with:
+        just-version: 1.41.0
     - name: Install uv
       uses: astral-sh/setup-uv@v5
       with:
@@ -25,10 +29,10 @@ jobs:
         uv sync --locked
     - name: Run checks
       run: |
-        make checks
+        just checks
     - name: Download assets
       run: |
-        make test-assets
+        just test-assets
     - name: Run tests
       run: |
-        make tests
+        just tests

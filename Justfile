@@ -14,8 +14,8 @@ tests:
 wandb-sync:
 	uv run --no-sync wandb sync --sync-all
 
-launch cluster:
-    sbatch launch/loss-{{cluster}}.sh
+launch cluster script *args:
+    sbatch launch/{{cluster}}/{{script}}.sh {{args}}
 
-run script:
-    uv run -m scripts.{{script}}
+run script *args:
+    uv run -m scripts.{{script}} {{args}}

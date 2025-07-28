@@ -31,8 +31,8 @@ notebooks = [
 target-dir = "build/dist"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [tool.uv]
 default-groups = ["dev", "scripts"]

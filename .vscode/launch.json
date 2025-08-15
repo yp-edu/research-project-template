@@ -18,7 +18,7 @@
             "console": "integratedTerminal",
             "justMyCode": false,
             "presentation": {
-                "hidden": true,
+                "hidden": true
             }
         }
     ]

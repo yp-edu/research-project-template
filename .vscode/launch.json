@@ -2,14 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Script: Demo",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "scripts.demo",
-            "console": "integratedTerminal",
-            "justMyCode": false
-        },
-        {
             "name": "Debug Tests",
             "type": "debugpy",
             "request": "launch",
@@ -20,6 +12,23 @@
             "presentation": {
                 "hidden": true
             }
+        },
+        {
+            "name": "Debug File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "purpose": ["debug-in-terminal"],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Script: Demo",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scripts.demo",
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }

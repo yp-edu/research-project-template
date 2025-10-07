@@ -19,3 +19,11 @@ launch cluster script *args:
 
 run script *args:
     uv run -m scripts.{{script}} {{args}}
+
+push-to cluster:
+	git fetch . main:tr
+	git push {{cluster}} tr
+
+pull-from cluster:
+	git fetch {{cluster}} tr:tr
+	git merge tr --ff-only

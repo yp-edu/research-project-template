@@ -11,14 +11,37 @@ test-assets:
 tests:
 	uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
 
-wandb-sync:
-	uv run --no-sync wandb sync --sync-all
+sync-experiments clean="":
+	export WANDB__SERVICE_WAIT=300; \
+	uv run wandb sync results/experiments/*/wandb/offline-run-*; \
+	if [ "{{clean}}" = "clean" ]; then \
+		rm -r results/experiments/*/wandb/offline-run-*; \
+	fi
 
 launch cluster script *args:
     sbatch launch/{{cluster}}/{{script}}.sh {{args}}
 
 run script *args:
     uv run -m scripts.{{script}} {{args}}
+
+@retrieve cluster experiment:
+	if [ "{{cluster}}" = "cv" ]; then \
+		scp -r cv:~/work/benchmarl-training/results/experiments/{{experiment}} ./results/experiments/; \
+	else \
+		scp -r jz:/lustre/fswork/projects/rech/nwq/uim47nr/benchmarl-training/results/experiments/{{experiment}} ./results/experiments/; \
+	fi
+	@# Retrieved experiment {{experiment}} from {{cluster}}
+
+@retrieve-and-sync cluster:
+	if [ "{{cluster}}" = "cv" ]; then \
+		scp -r cv:~/work/benchmarl-training/results/experiments/*/wandb/offline-run-* ./results/wandb/; \
+	else \
+		scp -r jz:/lustre/fswork/projects/rech/nwq/uim47nr/benchmarl-training/results/experiments/*/wandb/offline-run-* ./results/wandb/; \
+	fi
+	@# Retrieved offline wandb logs from {{cluster}}
+	uv run wandb sync results/wandb/*
+	@# Synced offline wandb logs from {{cluster}}
+
 
 push-to cluster:
 	git fetch . main:tr

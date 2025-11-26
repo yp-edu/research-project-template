@@ -6,7 +6,7 @@ Single run with:
 ```bash
 uv run -m scripts.run_experiment \
     group1=first \
-    group2=nested/first
+    group2=base
 ```
 
 Sweep with:
@@ -23,6 +23,7 @@ import hydra
 from omegaconf import DictConfig, OmegaConf
 import wandb
 import sys
+import time
 
 from research_project_template.core import loss_function
 
@@ -36,8 +37,10 @@ def main(cfg: DictConfig):
     with wandb.init(
         entity=cfg.wandb.entity, project=cfg.wandb.project, mode=cfg.wandb.mode, config=dict_config
     ) as run:
-        run.log({"loss": loss})
-        logger.info(f"Loss: {loss}")
+        for i in range(60):
+            run.log({"loss": loss, "step": i})
+            logger.info(f"Step {i}: Loss: {loss}")
+            time.sleep(1)
 
     return loss
 

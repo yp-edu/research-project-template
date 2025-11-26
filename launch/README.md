@@ -15,14 +15,14 @@ git init
 Add a cluster remote branch:
 
 ```bash
-git remote add jeanzay <remote_url>
+git remote add jz <remote_url>
 ```
 
-Dedicate a branch for the cluster:
+Dedicate a branch for transferring code to the cluster:
 
 ```bash
-git branch main-jz
-git push --set-upstream jeanzay main-jz
+git branch tr
+git push --set-upstream jz tr
 ```
 
 ## Setup `uv`

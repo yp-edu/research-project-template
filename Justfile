@@ -18,11 +18,13 @@ sync-experiments clean="":
 		rm -r results/experiments/*/wandb/offline-run-*; \
 	fi
 
-launch cluster script *args:
-    sbatch launch/{{cluster}}/{{script}}.sh {{args}}
+launch cluster experiment *args:
+	uv run -m scripts.run_experiment -m \
+		hydra/launcher={{cluster}} \
+		hydra/sweeper={{experiment}} {{args}}
 
-run script *args:
-    uv run -m scripts.{{script}} {{args}}
+run-experiment *args:
+    uv run -m scripts.run_experiment {{args}}
 
 @retrieve cluster experiment:
 	if [ "{{cluster}}" = "cv" ]; then \

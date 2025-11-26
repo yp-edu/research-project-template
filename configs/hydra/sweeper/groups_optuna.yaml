@@ -1,0 +1,11 @@
+defaults:
+  - optuna
+  - override sampler: nsgaii
+
+study_name: groups
+direction: maximize
+n_trials: 4
+n_jobs: 2
+params:
+  group1: choice(first, second, third)
+  group2: choice(base)

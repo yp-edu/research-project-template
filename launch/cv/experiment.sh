@@ -13,4 +13,6 @@
 #SBATCH --error=results/slurm/%x-%j.err
 
 module purge
-uv run --no-sync -m scripts.loss
+uv run -m scripts.run_experiment \
+    group1=first \
+    group2=nested/first

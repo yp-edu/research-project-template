@@ -1,0 +1,7 @@
+defaults:
+  - basic
+
+max_batch_size: 2
+params:
+  group1: choice(first, second, third)
+  group2: choice(base)

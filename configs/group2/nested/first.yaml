@@ -1,3 +1,3 @@
 defaults:
-  - nested/second
+  - second
   - _self_

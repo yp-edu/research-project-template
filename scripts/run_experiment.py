@@ -1,10 +1,20 @@
 """
-Run a useless loss function script.
+Run a demo experiment script.
 
-Run with:
+Single run with:
 
 ```bash
-uv run -m scripts.loss
+uv run -m scripts.run_experiment \
+    group1=first \
+    group2=nested/first
+```
+
+Sweep with:
+
+```bash
+uv run -m scripts.run_experiment -m \
+    hydra/sweeper=groups_optuna \
+    hydra/launcher=local
 ```
 """
 
@@ -17,10 +27,10 @@ import sys
 from research_project_template.core import loss_function
 
 
-@hydra.main(config_path="../configs", config_name="loss.yaml", version_base=None)
+@hydra.main(config_path="../configs", config_name="run_experiment.yaml", version_base=None)
 def main(cfg: DictConfig):
     logger.info(f"Python version: {sys.version}")
-    loss = loss_function(cfg.param_group.x, cfg.param_group.y)
+    loss = loss_function(cfg.group1.x, cfg.group2.nested.y)
 
     dict_config = OmegaConf.to_container(cfg, resolve=True, throw_on_missing=True)
     with wandb.init(

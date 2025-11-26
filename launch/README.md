@@ -50,12 +50,24 @@ salloc --gpus 1 -A nwq@v100
 Run a job:
 
 ```bash
-srun uv run --no-sync -m scripts.loss
+srun uv run -m scripts.run_experiment \
+    group1=first \
+    group2=nested/first
+```
+
+## Launch with `submitit`
+
+The package is shipped with the `submitit` plugin. You can launch a script with:
+
+```bash
+uv run -m scripts.run_experiment -m \
+    hydra/sweeper=groups_optuna \
+    hydra/launcher=jz-dev
 ```
 
 ## Launch Batched
 
-Launch a batched job:
+Alternatively, you can launch a batched job using bash scripts from the `launch` folder.
 
 ```bash
 sbatch launch/loss-jz.sh

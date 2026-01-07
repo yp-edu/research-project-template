@@ -6,31 +6,31 @@
 
 - [x] Implement Advisor
   - Status: ✅ Created with sidecar structure
-  - File: agents/advisor.yaml
+  - File: agents/research-advisor.yaml
   - Features: Memory, embedded prompts, workflow routes
   - Priority: Complete
 
 - [x] Implement Scholar
   - Status: ✅ Created with sidecar structure
-  - File: agents/scholar.yaml
+  - File: agents/research-scholar.yaml
   - Features: Memory, embedded prompts, workflow routes
   - Priority: Complete
 
 - [x] Implement Engineer
   - Status: ✅ Created with sidecar structure
-  - File: agents/engineer.yaml
+  - File: agents/research-engineer.yaml
   - Features: Memory, embedded prompts, workflow routes
   - Priority: Complete
 
 - [x] Implement Writer
   - Status: ✅ Created with sidecar structure
-  - File: agents/writer.yaml
+  - File: agents/research-writer.yaml
   - Features: Memory, embedded prompts, workflow routes
   - Priority: Complete
 
 - [x] Implement Reviewer
   - Status: ✅ Created with sidecar structure
-  - File: agents/reviewer.yaml
+  - File: agents/research-reviewer.yaml
   - Features: Memory, embedded prompts, workflow routes
   - Priority: Complete
 
@@ -150,11 +150,11 @@ bmad install research-project
 ### Run Agent
 
 ```bash
-agent advisor
-agent scholar
-agent engineer
-agent writer
-agent reviewer
+agent research-advisor
+agent research-scholar
+agent research-engineer
+agent research-writer
+agent research-reviewer
 ```
 
 ### Run Workflow (after implementation)

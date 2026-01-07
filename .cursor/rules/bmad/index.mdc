@@ -53,6 +53,14 @@ BMAD rules have been installed to: `.cursor/rules/bmad/`
 - @bmad/bmb/workflows/edit-workflow - edit-workflow
 - @bmad/bmb/workflows/workflow-compliance-check - workflow-compliance-check
 
+### RESEARCH-PROJECT
+
+**Workflows:**
+- @bmad/research-project/workflows/Project Setup - Project Setup
+- @bmad/research-project/workflows/Baseline Development - Baseline Development
+- @bmad/research-project/workflows/Contribution Development - Contribution Development
+- @bmad/research-project/workflows/Review & Revision - Review & Revision
+
 
 ## Quick Reference
 

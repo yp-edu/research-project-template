@@ -110,19 +110,19 @@ No standalone tasks - all functionality is provided through agents and workflows
 
 2. **Start with Project Setup:**
    ```
-   agent advisor
+   agent research-advisor
    *PS  (Project Setup workflow)
    ```
 
 3. **Begin Research Planning:**
    ```
-   agent advisor
+   agent research-advisor
    *IL  (Ideation & Literature workflow)
    ```
 
 4. **Or chat with an agent directly:**
    ```
-   agent advisor
+   agent research-advisor
    *CH  (Chat with Advisor)
    ```
 
@@ -131,11 +131,11 @@ No standalone tasks - all functionality is provided through agents and workflows
 ```
 research-project/
 ├── agents/                    # Agent definitions
-│   ├── advisor.yaml
-│   ├── scholar.yaml
-│   ├── engineer.yaml
-│   ├── writer.yaml
-│   └── reviewer.yaml
+│   ├── research-advisor.yaml
+│   ├── research-scholar.yaml
+│   ├── research-engineer.yaml
+│   ├── research-writer.yaml
+│   └── research-reviewer.yaml
 ├── workflows/                 # Workflow folders
 │   ├── project-setup/
 │   │   └── README.md
@@ -181,14 +181,14 @@ The module can be configured in `_bmad/research-project/config.yaml`
 
 2. **Run Project Setup:**
    ```
-   agent advisor
+   agent research-advisor
    *PS
    ```
    This will configure your project template and replace placeholders.
 
 3. **Begin Research Planning:**
    ```
-   agent advisor
+   agent research-advisor
    *IL
    ```
    Work with Advisor and Scholar to plan your research and review literature.
@@ -197,20 +197,20 @@ The module can be configured in `_bmad/research-project/config.yaml`
 
 1. **Design experiments:**
    ```
-   agent engineer
+   agent research-engineer
    *ED  (Experimental Design)
    ```
 
 2. **Implement with best practices:**
    ```
-   agent engineer
+   agent research-engineer
    *BD  (Baseline Development workflow)
    ```
    Engineer will help implement baselines following reproducibility standards.
 
 3. **Develop contributions:**
    ```
-   agent engineer
+   agent research-engineer
    *CD  (Contribution Development workflow)
    ```
    Create novel methods with Advisor, Engineer, and Writer collaboration.
@@ -219,19 +219,19 @@ The module can be configured in `_bmad/research-project/config.yaml`
 
 1. **Get writing guidance:**
    ```
-   agent writer
+   agent research-writer
    *PS  (Paper Structure)
    ```
 
 2. **Review paper quality:**
    ```
-   agent reviewer
+   agent research-reviewer
    *PR  (Paper Review)
    ```
 
 3. **Handle revisions:**
    ```
-   agent reviewer
+   agent research-reviewer
    *RR  (Review & Revision workflow)
    ```
 

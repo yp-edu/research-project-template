@@ -1,3 +1,0 @@
-= Experiments
-
-Experiments results.

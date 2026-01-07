@@ -5,10 +5,9 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![python versions](https://img.shields.io/badge/python-3.11%20|%203.12-blue)](https://www.python.org/downloads/)
 [![Latex](https://img.shields.io/badge/latex-grey.svg?logo=latex)](https://www.latex-project.org/)
-[![Typst](https://img.shields.io/badge/typst-grey.svg?logo=typst)](https://github.com/typst/typst)
 ![ci](https://github.com/yp-edu/research-project-template/actions/workflows/ci.yml/badge.svg)
 
-KISS research project template built for Cursor IDE, Python, LaTeX and Typst.
+KISS research project template built for Cursor IDE, Python, and LaTeX.
 
 ## AI Config
 
@@ -21,10 +20,6 @@ You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json), be
 After setting-up Latex (e.g. with TeX Live), download the latex workshop extension from [here](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
 
 This project uses the following latex workshop outdir: `%WORKSPACE_FOLDER%/latex/build/`.
-
-## Typst Config
-
-After setting up Typst, use `typst watch typst/main.typ typst/main.pdf` to instantly compile the project. Tinymist Typst VSCode extension is recommended.
 
 ## Python Config
 
@@ -41,10 +36,19 @@ This project is cluster-ready.
 - See [`launch`](./launch/) to launch scripts with slurm.
 - See [`notebooks`](./notebooks/) to run notebooks on a cluster's JupyterHub.
 
-## Variables
+## BMAD Research Project Accelerator
 
-Search and replace the following variables for a fast setup:
+This template includes the **Research Project Accelerator** BMAD module. To get started:
 
-- `<NAME>`: Name of the author.
-- `<LAB>`: Lab of the author.
-- `<EMAIL>`: Email of the author.
+1. Install BMAD (if not already installed):
+   ```bash
+   npx bmad-method@latest install
+   ```
+   When prompted:
+   - Select "Modify custom module selection"
+   - Choose "Add new custom modules"
+   - Enter the path: `_bmad-output/bmb-creations/research-project`
+
+2. Run the **Project Setup** workflow first to configure your project.
+
+See [`_bmad-output/bmb-creations/research-project/README.md`](_bmad-output/bmb-creations/research-project/README.md) for full documentation.

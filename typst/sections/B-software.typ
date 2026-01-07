@@ -1,3 +1,0 @@
-= Software
-
-Describe the software used in the paper.

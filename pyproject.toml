@@ -5,7 +5,7 @@ description = "KISS research project template built for Cursor IDE."
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "<NAME>"},
+    {name = ""},
 ]
 requires-python = ">=3.11"
 dependencies = [

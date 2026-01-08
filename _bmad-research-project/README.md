@@ -226,11 +226,11 @@ The module incorporates best practices from:
 
 ## Author
 
-Created by Xmaster on 2026-01-07
+Created by Yoann Poupart on 2026-01-07
 
 ## License
 
-[Add license information if applicable]
+MIT License - See [LICENSE](./LICENSE) file for details.
 
 ---
 

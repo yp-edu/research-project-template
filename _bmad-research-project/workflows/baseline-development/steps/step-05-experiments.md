@@ -14,6 +14,12 @@ sidecarFile: '{workflow_path}/.baseline-development-state.md'
 # Task References
 # (No task references used in this step)
 
+# Template References
+experimentTemplate: '{project-root}/_bmad/research-project/templates/experiment-template.md'
+
+# Data References
+reproducibilityChecklist: '{project-root}/_bmad/research-project/data/reproducibility-checklist.md'
+
 ---
 
 # Step 5: Experiment Execution

@@ -13,6 +13,12 @@ sidecarFile: '{workflow_path}/.contribution-development-state.md'
 
 # Task References
 
+# Template References
+experimentTemplate: '{project-root}/_bmad/research-project/templates/experiment-template.md'
+
+# Data References
+reproducibilityChecklist: '{project-root}/_bmad/research-project/data/reproducibility-checklist.md'
+
 ---
 
 # Step 4: Experimentation

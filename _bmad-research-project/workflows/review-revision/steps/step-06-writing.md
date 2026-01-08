@@ -17,6 +17,12 @@ outputFolder: '{output_folder}'
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 
+# Template References
+paperOutlineTemplate: '{project-root}/_bmad/research-project/templates/paper-outline-template.md'
+
+# Data References
+conferenceRequirements: '{project-root}/_bmad/research-project/data/conference-requirements.md'
+
 ---
 
 # Step 6: Writing Revisions

@@ -16,6 +16,10 @@ outputFolder: '{output_folder}'
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 
+# Template References
+paperReviewTemplate: '{project-root}/_bmad/research-project/templates/paper-review-template.md'
+conferenceRequirements: '{project-root}/_bmad/research-project/data/conference-requirements.md'
+
 ---
 
 # Step 2: Review Input

@@ -14,6 +14,12 @@ sidecarFile: '{workflow_path}/.contribution-development-state.md'
 # Task References
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 
+# Template References
+paperOutlineTemplate: '{project-root}/_bmad/research-project/templates/paper-outline-template.md'
+
+# Data References
+conferenceRequirements: '{project-root}/_bmad/research-project/data/conference-requirements.md'
+
 ---
 
 # Step 6: Paper Writing

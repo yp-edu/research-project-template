@@ -47,7 +47,7 @@ This template includes the **Research Project Accelerator** BMAD module. To get 
    When prompted:
    - Select "Modify custom module selection"
    - Choose "Add new custom modules"
-   - Enter the path: `_bmad-modules/research-project`
+   - Enter the path: `_bmad-research-project`
 
 2. Run the **Project Setup** workflow first to configure your project.
 

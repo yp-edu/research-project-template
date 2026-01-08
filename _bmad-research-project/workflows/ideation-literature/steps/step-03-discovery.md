@@ -19,6 +19,10 @@ advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitati
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 
 # Template References
+literatureReviewTemplate: '{project-root}/_bmad/research-project/templates/literature-review-template.md'
+
+# Data References
+interpretabilityToolsReference: '{project-root}/_bmad/research-project/data/interpretability-tools-reference.md'
 
 ---
 

@@ -11,7 +11,7 @@ KISS research project template built for Cursor IDE, Python, and LaTeX.
 
 ## AI Config
 
-This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder, which you should tailor to your needs (especially the [rules](.cursor/rules/)). See below for how to install the BMad Research Project Accelerator.
+This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder, which you should tailor to your needs (especially the [rules](.cursor/rules/)). See [below](#bmad-research-project-accelerator) for how to install the BMad Research Project Accelerator.
 
 You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json), be sure to check the `--storage-path` of the `arxiv-mcp-server`. You can find more MCP servers in [Playbooks](https://playbooks.com/) or [Smithery](https://smithery.ai/).
 

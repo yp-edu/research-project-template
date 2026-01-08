@@ -50,4 +50,4 @@ This template includes the **Research Project Accelerator** BMad module, see [BM
 
 2. Run the **Project Setup** workflow first to configure your project.
 
-See [`_bmad-output/bmb-creations/research-project/README.md`](_bmad-output/bmb-creations/research-project/README.md) for full documentation.
+See [`_bmad-research-project/README.md`](_bmad-research-project/README.md) for full documentation.

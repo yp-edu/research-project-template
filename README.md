@@ -36,6 +36,8 @@ This project is cluster-ready.
 - See [`launch`](./launch/) to launch scripts with slurm.
 - See [`notebooks`](./notebooks/) to run notebooks on a cluster's JupyterHub.
 
+Also see the hydra configs based on `submitit` in the [`configs/hydra/launcher/`](./configs/hydra/launcher/) folder.
+
 ## BMad Research Project Accelerator
 
 This template includes the **Research Project Accelerator** BMad module, see [BMad Documentation](https://github.com/bmad-code-org/BMAD-METHOD) to learn more. To get started:

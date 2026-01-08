@@ -218,7 +218,7 @@ Workflows reference templates and data files from the module:
 **Data:**
 - `conference-requirements.md` - Conference submission requirements
 - `reproducibility-checklist.md` - Reproducibility best practices
-- `interpretability-tools-reference.md` - Tools reference (TorchRL, tdhook)
+- `tools-reference.md` - Tools reference (TorchRL, tdhook)
 
 These are located at: `{project-root}/_bmad/research-project/templates/` and `{project-root}/_bmad/research-project/data/`
 

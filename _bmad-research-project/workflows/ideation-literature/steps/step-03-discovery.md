@@ -22,7 +22,7 @@ partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 literatureReviewTemplate: '{project-root}/_bmad/research-project/templates/literature-review-template.md'
 
 # Data References
-interpretabilityToolsReference: '{project-root}/_bmad/research-project/data/interpretability-tools-reference.md'
+toolsReference: '{project-root}/_bmad/research-project/data/tools-reference.md'
 
 ---
 

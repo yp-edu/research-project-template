@@ -117,7 +117,7 @@ research-project/
 ├── data/                      # Module data
 │   ├── conference-requirements.md
 │   ├── reproducibility-checklist.md
-│   └── interpretability-tools-reference.md
+│   └── tools-reference.md
 ├── docs/                      # Module documentation
 │   └── TODO.md                # Development roadmap
 ├── _module-installer/         # Installation configuration

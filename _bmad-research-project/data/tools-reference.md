@@ -2,7 +2,7 @@
 
 Quick reference for reinforcement learning and interpretability tools used in this research project.
 
-This module uses **TorchRL** for reinforcement learning and **tdhook** for interpretability analysis.
+This module uses **TorchRL** for reinforcement learning, **BenchMARL** for MARL benchmarking, and **tdhook** for interpretability analysis.
 
 > **Note:** All installation commands in this reference use `uv` (not `pip`). Always use `uv add <package>` to install dependencies in this project.
 
@@ -33,12 +33,40 @@ uv add torchrl
 - **Replay Buffers:** Composable replay buffers
 - **Trainers:** Training loops and checkpointing
 
-**Tutorials:**
-- Reinforcement Learning (PPO) with TorchRL
-- Multi-Agent Reinforcement Learning (PPO) with TorchRL
-- Competitive Multi-Agent Reinforcement Learning (DDPG) with TorchRL
-
 **Documentation:** https://docs.pytorch.org/rl/stable/index.html
+
+### BenchMARL
+
+**Purpose:** Multi-Agent Reinforcement Learning (MARL) training library for reproducibility and benchmarking
+
+**Key Features:**
+- Standardized interface for MARL algorithms and environments
+- Built on TorchRL and PyTorch for high performance
+- Uses Hydra for flexible and modular configuration
+- Compatible with marl-eval for standardized evaluations
+- Easy integration of new algorithms and environments
+- Reproducibility through systematic configuration
+
+**Installation:**
+```bash
+uv add benchmarl
+```
+
+**Key Components:**
+- **Algorithms:** Standard MARL algorithms (PPO, DDPG, etc.)
+- **Environments:** Public benchmarks and custom environments
+- **Experiments:** Independent of algorithm, environment, and model choices
+- **Reporting:** Standardized and statistically-strong plotting
+
+**Core Design Tenets:**
+- Reproducibility through systematical grounding and standardization
+- Standardised and statistically-strong plotting and reporting
+- Experiments independent of component choices
+- Breadth over the MARL ecosystem
+- Easy implementation of new components
+- Leverages TorchRL infrastructure
+
+**Documentation:** https://benchmarl.readthedocs.io/en/latest/
 
 ## Interpretability
 
@@ -108,45 +136,56 @@ uv add wandb
 
 ### When to Use Which Tool
 
-**For Reinforcement Learning:**
-- Use TorchRL for all RL experiments (single-agent and multi-agent)
-- Use TorchRL's built-in environments and transforms
-- Leverage TorchRL's modular design for custom algorithms
-- Use TorchRL collectors and replay buffers for data management
+**For Single-Agent RL:**
+- TorchRL provides comprehensive support for single-agent environments and algorithms
+
+**For Multi-Agent RL (MARL):**
+- BenchMARL offers standardized benchmarking and reproducibility for MARL experiments
+- Built on TorchRL, providing high performance and state-of-the-art implementations
+- Ideal for comparing algorithms, environments, and models
+- Compatible with marl-eval for standardized evaluations
 
 **For Interpretability:**
-- Use tdhook for interpretability analysis with TensorDict-based models
-- Use Integrated Gradients for attribution analysis
-- Use Steering Vectors for model control and analysis
-- Integrate tdhook with TorchRL workflows seamlessly
-
-**For MARL:**
-- Use TorchRL's multi-agent environment support
-- Use TorchRL's multi-agent objectives (PPO, DDPG, etc.)
-- Apply tdhook for interpretability in multi-agent settings
-- Use custom visualization for multi-agent interactions
+- tdhook works seamlessly with TensorDict-based models (compatible with TorchRL/BenchMARL)
+- Integrated Gradients for attribution analysis
+- Steering Vectors for model control and analysis
 
 ### Integration with Research Workflow
 
 1. **During Development:**
-   - Use wandb for training monitoring and experiment tracking
-   - Use TorchRL's logging utilities
-   - Use tdhook for debugging model behavior during training
+   - wandb for training monitoring and experiment tracking
+   - tdhook for debugging model behavior during training
 
 2. **During Analysis:**
-   - Use tdhook for attribution analysis on trained models
-   - Use TorchRL's visualization tools for policy and value function analysis
+   - tdhook for attribution analysis on trained models
    - Generate publication-quality figures from interpretability results
 
 3. **For Paper:**
-   - Document TorchRL version and configuration
-   - Document tdhook methods used for interpretability
+   - Document library versions and configurations (TorchRL, BenchMARL, tdhook)
    - Include code for reproducibility
    - Report interpretability findings clearly
 
-## Example Workflow
+## Example Workflows
 
-### RL Training with TorchRL
+### MARL Training with BenchMARL
+```python
+from benchmarl import Experiment
+from benchmarl.algorithms import MappoConfig
+from benchmarl.environments import VmasTask
+
+# Configure experiment
+experiment = Experiment(
+    algorithm_config=MappoConfig.get_from_yaml(),
+    model_config=...,
+    seed=0,
+    task=VmasTask.Navigation.get_from_yaml(),
+)
+
+# Run experiment
+experiment.run()
+```
+
+### Single-Agent RL with TorchRL
 ```python
 from torchrl.envs import GymEnv
 from torchrl.modules import Actor
@@ -163,11 +202,8 @@ loss = PPO(policy, env)
 
 # Training loop
 for epoch in range(num_epochs):
-    # Collect data
     data = collector.collect()
-    # Compute loss
     loss_value = loss(data)
-    # Optimize
     loss_value.backward()
     optimizer.step()
 ```

@@ -45,8 +45,7 @@ This template includes the **Research Project Accelerator** BMAD module. To get 
    npx bmad-method@latest install
    ```
    When prompted:
-   - Select "Modify custom module selection"
-   - Choose "Add new custom modules"
+   - Select "Add/Install custom modules"
    - Enter the path: `_bmad-research-project`
 
 2. Run the **Project Setup** workflow first to configure your project.

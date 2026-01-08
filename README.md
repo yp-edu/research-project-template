@@ -11,7 +11,7 @@ KISS research project template built for Cursor IDE, Python, and LaTeX.
 
 ## AI Config
 
-This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder, which you should tailor to your needs (especially the [rules](.cursor/rules/)).
+This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder, which you should tailor to your needs (especially the [rules](.cursor/rules/)). See below for how to install the BMad Research Project Accelerator.
 
 You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json), be sure to check the `--storage-path` of the `arxiv-mcp-server`. You can find more MCP servers in [Playbooks](https://playbooks.com/) or [Smithery](https://smithery.ai/).
 
@@ -36,11 +36,11 @@ This project is cluster-ready.
 - See [`launch`](./launch/) to launch scripts with slurm.
 - See [`notebooks`](./notebooks/) to run notebooks on a cluster's JupyterHub.
 
-## BMAD Research Project Accelerator
+## BMad Research Project Accelerator
 
-This template includes the **Research Project Accelerator** BMAD module. To get started:
+This template includes the **Research Project Accelerator** BMad module, see [BMad Documentation](https://github.com/bmad-code-org/BMAD-METHOD) to learn more. To get started:
 
-1. Install BMAD (if not already installed):
+1. Install BMad (if not already installed):
    ```bash
    npx bmad-method@latest install
    ```

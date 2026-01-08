@@ -42,7 +42,7 @@ This template includes the **Research Project Accelerator** BMad module, see [BM
 
 1. Install BMad (if not already installed):
    ```bash
-   npx bmad-method@latest install
+   npx bmad-method@alpha install
    ```
    When prompted:
    - Select "Add/Install custom modules"

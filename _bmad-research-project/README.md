@@ -18,9 +18,14 @@ This module provides:
 
 Install the module using BMAD:
 
-```bash
-bmad install research-project
-```
+1. Install BMad (if not already installed):
+   ```bash
+   npx bmad-method@alpha install
+   ```
+
+2. When prompted:
+   - Select "Add/Install custom modules"
+   - Enter the path: `_bmad-research-project`
 
 During installation, you'll be asked for:
 - Your name (for paper templates)
@@ -35,96 +40,53 @@ The installer will automatically:
 
 ## Components
 
-### Agents (5)
+This module provides **5 specialized agents** and **5 stage-based workflows**:
 
-1. **Advisor** 🎯 - Research Strategy & Direction Advisor
-   - Provides strategic guidance and research direction
-   - Connects experiments to broader research goals
-   - Orchestrates workflows and ensures project coherence
+### Agents
 
-2. **Scholar** 📚 - Literature Review & Research Scholar
-   - Expert in systematic literature review
-   - Paper discovery, analysis, and synthesis
-   - Related work organization and positioning
+- 🎯 **Advisor** - Research Strategy & Direction
+- 📚 **Scholar** - Literature Review & Research
+- 🔧 **Engineer** - Experimental Design & Implementation
+- ✍️ **Writer** - Academic Paper Writing
+- 🔍 **Reviewer** - Quality Assurance & Review
 
-3. **Engineer** 🔧 - Experimental Design & Implementation Engineer
-   - Senior-level Python code with PEP 8 standards
-   - Reproducible experimentation (fixed seeds, logging, checkpoints)
-   - BenchMARL framework for MARL research
-   - Interpretability tools integration (Captum, SHAP)
+**See [agents/README.md](agents/README.md) for complete agent documentation.**
 
-4. **Writer** ✍️ - Academic Paper Writer & Narrative Specialist
-   - Paper structure and narrative flow
-   - Academic writing standards (NeurIPS, ICML, ICLR)
-   - Reproducibility sections and submission readiness
+### Workflows
 
-5. **Reviewer** 🔍 - Quality Assurance & Research Reviewer
-   - Comprehensive paper review and gap analysis
-   - Reproducibility validation
-   - Quality assurance and improvement suggestions
+- **PS** - Project Setup
+- **IL** - Ideation & Literature
+- **BD** - Baseline Development
+- **CD** - Contribution Development
+- **RR** - Review & Revision
 
-### Workflows (5)
-
-1. **Project Setup** - Initialize new research projects
-   - Configure project template
-   - Replace author placeholders
-   - Set up project structure
-   - Prepare environment for research
-
-2. **Ideation & Literature** - Research planning and literature review
-   - Research ideation and hypothesis formation
-   - Systematic literature discovery
-   - Paper analysis and synthesis
-   - Research planning and positioning
-
-3. **Baseline Development** - Understanding SOTA and implementing baselines
-   - SOTA method understanding
-   - Baseline implementation with best practices
-   - Experiment execution and tracking
-   - Initial paper sections (methods, results)
-
-4. **Contribution Development** - Creating novel research contributions
-   - Novel method design
-   - Experimental validation
-   - Results analysis and interpretation
-   - Paper writing (methods, results, discussion)
-   - Iterative experiment-paper co-development
-
-5. **Review & Revision** - Review rounds and paper revisions
-   - Comprehensive paper review
-   - Gap analysis and issue identification
-   - Revision planning and implementation
-   - Rebuttal writing
-   - Final quality assurance
-
-### Tasks (0)
-
-No standalone tasks - all functionality is provided through agents and workflows.
+**See [workflows/README.md](workflows/README.md) for complete workflow documentation.**
 
 ## Quick Start
 
-1. **Install the module:**
-   ```bash
-   bmad install research-project
-   ```
+After [installation](#installation), start with:
 
-2. **Start with Project Setup:**
+1. **Project Setup:**
    ```
    agent research-advisor
    *PS  (Project Setup workflow)
    ```
 
-3. **Begin Research Planning:**
+2. **Research Planning:**
    ```
    agent research-advisor
    *IL  (Ideation & Literature workflow)
    ```
 
-4. **Or chat with an agent directly:**
+3. **Or chat with an agent:**
    ```
    agent research-advisor
    *CH  (Chat with Advisor)
    ```
+
+For detailed agent and workflow documentation, see:
+- [agents/README.md](agents/README.md) - Complete agent guide
+- [workflows/README.md](workflows/README.md) - Complete workflow guide
 
 ## Module Structure
 
@@ -179,70 +141,45 @@ The module can be configured in `_bmad/research-project/config.yaml`
 - **project_description**: Your research focus (determines field scope and customization)
 - **field_scope**: Auto-derived from project_description
 
-## Examples
+## Usage Examples
 
-### Example 1: Starting a New Research Project
+### Starting a New Research Project
 
-1. **Install the module:**
-   ```bash
-   bmad install research-project
-   ```
-
-2. **Run Project Setup:**
+1. Run Project Setup to configure your project:
    ```
    agent research-advisor
    *PS
    ```
-   This will configure your project template and replace placeholders.
 
-3. **Begin Research Planning:**
+2. Plan your research and review literature:
    ```
    agent research-advisor
    *IL
    ```
-   Work with Advisor and Scholar to plan your research and review literature.
 
-### Example 2: Developing Experiments
+### Developing Experiments
 
-1. **Design experiments:**
+1. Implement baselines:
    ```
    agent research-engineer
-   *ED  (Experimental Design)
+   *BD  (Baseline Development)
    ```
 
-2. **Implement with best practices:**
+2. Develop contributions:
    ```
    agent research-engineer
-   *BD  (Baseline Development workflow)
-   ```
-   Engineer will help implement baselines following reproducibility standards.
-
-3. **Develop contributions:**
-   ```
-   agent research-engineer
-   *CD  (Contribution Development workflow)
-   ```
-   Create novel methods with Advisor, Engineer, and Writer collaboration.
-
-### Example 3: Writing and Reviewing Papers
-
-1. **Get writing guidance:**
-   ```
-   agent research-writer
-   *PS  (Paper Structure)
+   *CD  (Contribution Development)
    ```
 
-2. **Review paper quality:**
+### Writing and Reviewing Papers
+
+1. Review paper quality:
    ```
    agent research-reviewer
-   *PR  (Paper Review)
+   *RR  (Review & Revision)
    ```
 
-3. **Handle revisions:**
-   ```
-   agent research-reviewer
-   *RR  (Review & Revision workflow)
-   ```
+For more examples and detailed workflows, see [workflows/README.md](workflows/README.md).
 
 ## Development Status
 
@@ -282,8 +219,8 @@ This module is optimized for:
 - **General ML/AI** research with emphasis on reproducibility
 
 The module incorporates best practices from:
-- BenchMARL framework for MARL
-- Interpretability tools (Captum, SHAP)
+- TorchRL for reinforcement learning
+- tdhook for interpretability
 - Reproducibility standards (fixed seeds, version control, logging)
 - Academic paper standards (NeurIPS, ICML, ICLR)
 

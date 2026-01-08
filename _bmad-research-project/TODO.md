@@ -161,7 +161,8 @@ workflow create-workflow
 ### Test Module Installation
 
 ```bash
-bmad install research-project
+npx bmad-method@alpha install
+# When prompted: Select "Add/Install custom modules", enter: _bmad-research-project
 ```
 
 ### Run Agent
@@ -228,7 +229,7 @@ The module is complete when:
 
 1. **Generate agent .mdc files for Cursor rules** - Make agents accessible via Cursor rules system
 2. **Test Agent-Workflow Integration** - Verify all menu routes work correctly after installation
-3. **Test Installation** - Run `bmad install research-project` and verify all files are correctly placed
+3. **Test Installation** - Run `npx bmad-method@alpha install` (select custom modules, path: `_bmad-research-project`) and verify all files are correctly placed
 4. **End-to-End Testing** - Test each workflow with real scenarios
 5. **Documentation Updates** - Ensure all examples use correct agent names (research-*)
 

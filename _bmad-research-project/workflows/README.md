@@ -36,7 +36,7 @@ Each workflow is self-contained but builds on outputs from previous workflows, c
 - Proper directory structure
 - Ready for research work
 
-**See:** [project-setup/README.md](./project-setup/README.md) for detailed documentation
+**See:** [project-setup/](./project-setup/) for detailed documentation
 
 ---
 
@@ -64,7 +64,7 @@ Each workflow is self-contained but builds on outputs from previous workflows, c
 - Related work outline
 - Research direction documented
 
-**See:** [ideation-literature/README.md](./ideation-literature/README.md) for detailed documentation
+**See:** [ideation-literature/](./ideation-literature/) for detailed documentation
 
 ---
 
@@ -92,7 +92,7 @@ Each workflow is self-contained but builds on outputs from previous workflows, c
 - Initial paper sections
 - Understanding of SOTA landscape
 
-**See:** [baseline-development/README.md](./baseline-development/README.md) for detailed documentation
+**See:** [baseline-development/](./baseline-development/) for detailed documentation
 
 ---
 
@@ -121,7 +121,7 @@ Each workflow is self-contained but builds on outputs from previous workflows, c
 - Analysis and interpretation
 - Paper sections highlighting contributions
 
-**See:** [contribution-development/README.md](./contribution-development/README.md) for detailed documentation
+**See:** [contribution-development/](./contribution-development/) for detailed documentation
 
 ---
 
@@ -150,7 +150,7 @@ Each workflow is self-contained but builds on outputs from previous workflows, c
 - Revised paper sections
 - Rebuttal document (if needed)
 
-**See:** [review-revision/README.md](./review-revision/README.md) for detailed documentation
+**See:** [review-revision/](./review-revision/) for detailed documentation
 
 ---
 

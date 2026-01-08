@@ -281,7 +281,7 @@ Agents are integrated into workflows through:
 - **Sidecar memory** shared across workflow sessions
 - **Template and data references** for consistency
 
-See [../workflows/README.md](../workflows/README.md) for workflow documentation.
+See [../workflows/](../workflows/) for workflow documentation.
 
 ## Technical Details
 

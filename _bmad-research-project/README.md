@@ -50,7 +50,7 @@ This module provides **5 specialized agents** and **5 stage-based workflows**:
 - ✍️ **Writer** - Academic Paper Writing
 - 🔍 **Reviewer** - Quality Assurance & Review
 
-**See [agents/README.md](agents/README.md) for complete agent documentation.**
+**See [agents/](agents/) for complete agent documentation.**
 
 ### Workflows
 
@@ -60,7 +60,7 @@ This module provides **5 specialized agents** and **5 stage-based workflows**:
 - **CD** - Contribution Development
 - **RR** - Review & Revision
 
-**See [workflows/README.md](workflows/README.md) for complete workflow documentation.**
+**See [workflows/](workflows/) for complete workflow documentation.**
 
 ## Quick Start
 
@@ -85,8 +85,8 @@ After [installation](#installation), start with:
    ```
 
 For detailed agent and workflow documentation, see:
-- [agents/README.md](agents/README.md) - Complete agent guide
-- [workflows/README.md](workflows/README.md) - Complete workflow guide
+- [agents/](agents/) - Complete agent guide
+- [workflows/](workflows/) - Complete workflow guide
 
 ## Module Structure
 
@@ -179,7 +179,7 @@ The module can be configured in `_bmad/research-project/config.yaml`
    *RR  (Review & Revision)
    ```
 
-For more examples and detailed workflows, see [workflows/README.md](workflows/README.md).
+For more examples and detailed workflows, see [workflows/](workflows/).
 
 ## Development Status
 

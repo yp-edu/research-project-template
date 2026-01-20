@@ -1,0 +1,17 @@
+name: Feature
+description: Detail the feature to implement.
+title: "[Feature] "
+labels: ["enhancement"]
+projects: ["yp-edu/1"]
+assignees:
+  - Xmaster6y
+type: feature
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A shortline description of the feature.
+      placeholder: Key insights about the feature.
+    validations:
+      required: true

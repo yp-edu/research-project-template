@@ -1,0 +1,17 @@
+name: Task
+description: Detail the task to implement.
+title: "[Task] "
+labels: ["enhancement"]
+projects: ["yp-edu/1"]
+assignees:
+  - Xmaster6y
+type: task
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A shortline description of the task.
+      placeholder: Key insights about the task.
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+name: Epic
+description: Detail the epic to implement a new feature or solve a bug.
+title: "[Epic] "
+labels: ["enhancement"]
+projects: ["yp-edu/1"]
+assignees:
+  - Xmaster6y
+type: epic
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A shortline description of the epic.
+      placeholder: Key insights about the epic.
+    validations:
+      required: true
+  - type: textarea
+    id: issues
+    attributes:
+      label: Linked Issues
+      description: List of tasks and issues for the epic.
+      value: |
+        * [ ] #?
+    validations:
+      required: true

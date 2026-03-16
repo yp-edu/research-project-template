@@ -19,9 +19,9 @@ sync-experiments clean="":
 	fi
 
 launch cluster experiment *args:
-	uv run -m scripts.run_experiment -m \
+	uv run -m scripts.run_experiment -m {{args}} \
 		hydra/launcher={{cluster}} \
-		hydra/sweeper={{experiment}} {{args}}
+		hydra/sweeper={{experiment}}
 
 run-experiment *args:
     uv run -m scripts.run_experiment {{args}}

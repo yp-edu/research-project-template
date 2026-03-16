@@ -9,6 +9,13 @@
 
 KISS research project template built for Cursor IDE, Python, and LaTeX.
 
+## Artifacts
+
+- **`docs/`** — Tracked project artifacts (versioned). Use for project status, notes, and documentation. The planning source of truth is [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md).
+- **`results/`** — Untracked outputs (git-ignored). Use for experiment runs, logs, checkpoints, and generated figures.
+
+After forking, run the **project-setup** command and keep `docs/PROJECT_STATUS.md` updated. See [Commands](#commands) below.
+
 ## AI Config
 
 This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder, which you should tailor to your needs (especially the [rules](.cursor/rules/)). See [below](#bmad-research-project-accelerator) for how to install the BMad Research Project Accelerator.
@@ -38,18 +45,6 @@ This project is cluster-ready.
 
 Also see the hydra configs based on `submitit` in the [`configs/hydra/launcher/`](./configs/hydra/launcher/) folder.
 
-## BMad Research Project Accelerator
+## Commands
 
-This template includes the **Research Project Accelerator** BMad module, see [BMad Documentation](https://github.com/bmad-code-org/BMAD-METHOD) to learn more. To get started:
-
-1. Install BMad (if not already installed):
-   ```bash
-   npx bmad-method@alpha install
-   ```
-   When prompted:
-   - Select "Add/Install custom modules"
-   - Enter the path: `_bmad-research-project`
-
-2. Run the **Project Setup** workflow first to configure your project.
-
-See [`_bmad-research-project/README.md`](_bmad-research-project/README.md) for full documentation.
+Repeatable workflows (run from Cursor command palette or chat): **project-setup**, **literature-review**, **design-experiments**, **write-paper**, **whats-next**, **review-paper**. Definitions live in [`.cursor/commands/`](.cursor/commands/).

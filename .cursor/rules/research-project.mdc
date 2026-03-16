@@ -1,0 +1,25 @@
+---
+description: "Guidance for using this repository as a research project template, with Cursor subagents, skills, and commands."
+alwaysApply: false
+---
+
+- This repository is a **research project template** combining code (`src/`, `scripts/`, `configs/`, `launch/`) and a LaTeX paper (`latex/`). **Tracked artifacts** go in `docs/` (versioned); **untracked outputs** go in `results/` (git-ignored). The planning source of truth is `docs/PROJECT_STATUS.md`.
+- When helping with research tasks, **prefer using the dedicated subagents** in `.cursor/agents/`:
+  - `research-advisor` for strategy and planning (e.g. whats-next).
+  - `research-engineer` for experiments, configs, and implementation.
+  - `research-scholar` for literature discovery and notes.
+  - `research-writer` for LaTeX drafting and revision.
+  - `research-reviewer` for internal review and QA.
+- When you need process guidance, **apply the relevant skills** in `.cursor/skills/`:
+  - `project-status`, `setup-checklist`, `setup-dependencies`, `setup-docs` for setup and planning.
+  - `literature-search`, `literature-notes`, `background-writing` for literature.
+  - `experimental-design`, `experiment-implementation` for experiments.
+  - `paper-writing`, `section-editing`, `claims-evidence` for writing.
+  - `paper-review-strengths`, `paper-review-weaknesses`, `paper-review-questions`, `paper-review-contribution`, `reproducibility-check` for review.
+  - `research-workflow` for phase definitions and what to do next.
+- Use **commands** in `.cursor/commands/` as entry points (each orchestrates multiple skills):
+  - `/project-setup`, `/literature-review`, `/design-experiments`, `/write-paper`, `/whats-next`, `/review-paper`.
+- When editing code or LaTeX:
+  - Prefer small, reviewable changes.
+  - Keep claims in the paper faithful to the actual experiments and code.
+  - Never fabricate experimental results, tables, or figures; ask the user for real outputs instead.

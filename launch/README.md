@@ -50,9 +50,7 @@ salloc --gpus 1 -A nwq@v100
 Run a job:
 
 ```bash
-srun uv run -m scripts.run_experiment \
-    group1=first \
-    group2=nested/first
+srun uv run -m scripts.run_experiment demo=first
 ```
 
 ## Launch with `submitit`
@@ -60,7 +58,7 @@ srun uv run -m scripts.run_experiment \
 The package is shipped with the `submitit` plugin. You can launch a script with:
 
 ```bash
-uv run -m scripts.run_experiment -m \
+uv run -m scripts.run_experiment -m demo=??? \
     hydra/sweeper=groups_optuna \
     hydra/launcher=jz-dev
 ```

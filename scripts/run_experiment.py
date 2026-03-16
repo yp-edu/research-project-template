@@ -1,18 +1,16 @@
 """
-Run a demo experiment script.
+Orchestrator for experiment scripts.
 
-Single run with:
+Run a script with its config:
 
 ```bash
-uv run -m scripts.run_experiment \
-    group1=first \
-    group2=base
+uv run -m scripts.run_experiment demo=first
 ```
 
-Sweep with:
+By default, no script runs. Sweep with:
 
 ```bash
-uv run -m scripts.run_experiment -m \
+uv run -m scripts.run_experiment -m demo=??? \
     hydra/sweeper=groups_optuna \
     hydra/launcher=local
 ```
@@ -21,28 +19,25 @@ uv run -m scripts.run_experiment -m \
 from loguru import logger
 import hydra
 from omegaconf import DictConfig, OmegaConf
-import wandb
-import sys
-import time
 
-from research_project_template.core import loss_function
+from scripts.demo import main as run_demo
+
+SCRIPTS = {"demo": run_demo}
 
 
 @hydra.main(config_path="../configs", config_name="run_experiment.yaml", version_base=None)
 def main(cfg: DictConfig):
-    logger.info(f"Python version: {sys.version}")
-    loss = loss_function(cfg.group1.x, cfg.group2.nested.y)
+    selected = [name for name in SCRIPTS if OmegaConf.select(cfg, name, default=None) is not None]
 
-    dict_config = OmegaConf.to_container(cfg, resolve=True, throw_on_missing=True)
-    with wandb.init(
-        entity=cfg.wandb.entity, project=cfg.wandb.project, mode=cfg.wandb.mode, config=dict_config
-    ) as run:
-        for i in range(60):
-            run.log({"loss": loss, "step": i})
-            logger.info(f"Step {i}: Loss: {loss}")
-            time.sleep(1)
+    if not selected:
+        logger.info("No script specified; nothing to run")
+        return
+    if len(selected) > 1:
+        logger.error(f"Only one script per run; got {selected}")
+        raise SystemExit(1)
 
-    return loss
+    name = selected[0]
+    SCRIPTS[name](cfg)
 
 
 if __name__ == "__main__":

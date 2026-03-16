@@ -1,3 +1,5 @@
 defaults:
-  - third
   - _self_
+
+x: 0
+y: 0

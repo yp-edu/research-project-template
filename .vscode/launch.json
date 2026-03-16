@@ -23,12 +23,15 @@
             "justMyCode": false
         },
         {
-            "name": "Script: Demo",
+            "name": "Run Experiment",
             "type": "debugpy",
             "request": "launch",
-            "module": "scripts.demo",
+            "module": "scripts.run_experiment",
             "console": "integratedTerminal",
-            "justMyCode": false
+            "justMyCode": false,
+            "args": [
+                "demo=first"
+            ]
         }
     ]
 }

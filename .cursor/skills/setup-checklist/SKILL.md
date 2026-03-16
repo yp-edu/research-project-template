@@ -13,7 +13,6 @@ description: "First-time template setup checklist: metadata, structure, environm
 ## Instructions
 
 - Use this skill only for **first-time setup** after forking. For "what to do next" use the **whats-next** command and **project-status** skill instead.
-- Optionally reference the BMAD project-setup workflow at `_bmad-research-project/workflows/project-setup/` for a step-by-step flow; this skill is a lightweight checklist that can be applied without loading BMAD.
 
 **Checklist (confirm or complete each):**
 

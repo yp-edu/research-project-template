@@ -25,6 +25,7 @@ description: "First-time template setup checklist: metadata, structure, environm
    - Confirm you can locate `configs/`, `scripts/`, `launch/`, `latex/`, `docs/`, `results/`.
    - Ensure `docs/PROJECT_STATUS.md` exists and phase is set (e.g. `setup`); create or update via **project-status** skill.
    - Confirm experiment entrypoints (`scripts/run_experiment.py`, `launch/*`) and config roots (`configs/`, `configs/hydra/`) are understood.
+   - **Package rename**: If project name differs from `research-project-template`, derive package name (`project_name.replace("-", "_")`), rename `src/research_project_template` to `src/<package_name>`, and update all imports and references. Use `references/package-renaming.md` for the procedure.
 
 3. **Environment**
    - Dependencies: `uv sync` (or equivalent) so the project runs.

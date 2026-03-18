@@ -16,7 +16,7 @@ Repeatable workflow to create a new experiment from a paper or idea: frame quest
 
 ## Agent Instructions
 
-1. **Frame question and hypothesis**: Ask what question the experiment answers, what the user expects (hypothesis), and what constraints apply (data, metrics, baselines). Use the **experimental-design** skill to ensure the design checklist is satisfied (question, hypothesis, dataset/splits, metrics, config, baselines, reproducibility).
+1. **Frame question and hypothesis**: Ask what question the experiment answers, what the user expects (hypothesis), and what constraints apply (data, metrics, baselines). Challenge the hypothesis: Is it testable? What would constitute a null or negative result? How will statistical significance be assessed? Use the **experimental-design** skill to ensure the design checklist is satisfied (question, hypothesis, dataset/splits, metrics, config, baselines, statistical validity, reproducibility).
 2. **Design runs**: Propose a small set of runs (e.g. main experiment, sanity check, ablation). Map each to configs and parameters using **experimental-design** and the existing config structure.
 3. **Implement**: Use the **experiment-implementation** skill to propose concrete edits (configs, code under `src/` or `scripts/`, tests under `tests/`, and optional launch scripts). Invoke **research-engineer** to apply edits in small, reviewable steps. Suggest run commands and where outputs go (`results/`).
 4. **Document status**: Use the **project-status** skill to update `docs/PROJECT_STATUS.md`: add or update Key artifacts (e.g. new config or script), set Next steps (e.g. run experiment, add analysis).

@@ -6,5 +6,6 @@ Check the following for each main result:
 2. **Configs**: All important hyperparameters, seeds, and dataset paths are specified in version-controlled config files.
 3. **Data**: Datasets and preprocessing steps are documented or scripted.
 4. **Metrics**: Metric definitions and aggregation (e.g., mean, std, number of runs) are clear.
-5. **Logging**: Outputs (logs, checkpoints, tables) are stored in a predictable location.
-6. **Randomness**: Randomness is controlled where appropriate (seeds, determinism flags, etc.).
+5. **Variance and aggregation**: Are multiple runs reported? Is mean ± std or equivalent clearly defined?
+6. **Logging**: Outputs (logs, checkpoints, tables) are stored in a predictable location.
+7. **Randomness**: Randomness is controlled where appropriate (seeds, determinism flags, etc.).

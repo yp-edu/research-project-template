@@ -19,6 +19,6 @@ description: "Patterns and checklists for designing and refining experiments in 
 When designing experiments:
 
 1. Ask what question the experiment should answer and what constraints apply.
-2. Use the checklist to ensure hypotheses, datasets, metrics, and configs are clear.
+2. Use the checklist to ensure hypotheses, datasets, metrics, and configs are clear. Challenge designs that lack variance reporting or significance considerations. Ask: "How will you know the result is not noise?"
 3. Propose a small set of experiments (including sanity checks and ablations).
 4. Suggest concrete config changes and run commands, keeping changes small and reviewable.

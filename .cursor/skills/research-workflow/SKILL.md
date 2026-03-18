@@ -14,6 +14,7 @@ description: "Guides the project through its main research phases (setup, ideati
 ## Instructions
 
 - Use `references/phases-overview.md` to recall the main phases and their goals.
+- For **ideation**, load `references/ideation-checklist.md`.
 - For **baseline development**, load `references/baseline-checklist.md`.
 - For **contribution development**, load `references/contribution-checklist.md`.
 - For **review & revision**, combine this skill with the `review-revision` skill.
@@ -22,4 +23,5 @@ When advising the user:
 
 1. Confirm the current phase and desired outcome.
 2. Walk through the relevant checklist with the user, briefly confirming each item.
-3. Recommend a focused next step and which subagent/command to use (e.g., `/design-experiments` with the research-engineer, `/write-paper`, `/review-paper`).
+3. When in ideation, do not simply accept ideas. Walk through the ideation checklist and surface concerns before recommending next steps.
+4. Recommend a focused next step and which subagent/command to use (e.g., `/design-experiments` with the research-engineer, `/write-paper`, `/review-paper`).

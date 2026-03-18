@@ -14,4 +14,6 @@ description: "Identify weaknesses of the paper with evidence (what is lacking or
 
 - For each weakness, state **what** is weak (e.g. unclear motivation, missing baseline, unsupported claim) and **where** the evidence is (section, claim, or missing artifact).
 - Be specific: point to the sentence, table, or config that is problematic or absent.
+- Prioritize weaknesses that undermine validity: missing variance, no significance tests, small sample sizes, cherry-picked comparisons.
+- Flag weak scientific contribution (e.g., incremental tweaks without clear benefit), unclear novelty (overlaps with prior work), or limited generalization (single domain, narrow setup). Be direct.
 - Output: A short list of weaknesses with 1–2 line justification and a pointer (e.g. "§4.1 claim X has no table", "no config for experiment Y"). Suggest a concrete fix where possible.

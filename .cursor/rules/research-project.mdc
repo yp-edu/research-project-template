@@ -3,7 +3,7 @@ description: "Guidance for using this repository as a research project template,
 alwaysApply: false
 ---
 
-- This repository is a **research project template** combining code (`src/`, `scripts/`, `configs/`, `launch/`) and a LaTeX paper (`latex/`). **Tracked artifacts** go in `docs/` (versioned); **untracked outputs** go in `results/` (git-ignored). The planning source of truth is `docs/PROJECT_STATUS.md`.
+- This repository is a **research project template** combining code (`src/`, `scripts/`, `configs/`) and a LaTeX paper (`latex/`). **Tracked artifacts** go in `docs/` (versioned); **untracked outputs** go in `results/` (git-ignored). The planning source of truth is `docs/PROJECT_STATUS.md`.
 - When helping with research tasks, **prefer using the dedicated subagents** in `.cursor/agents/`:
   - `research-advisor` for strategy and planning (e.g. whats-next).
   - `research-engineer` for experiments, configs, and implementation.

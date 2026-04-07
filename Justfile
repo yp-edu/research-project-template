@@ -1,3 +1,8 @@
+cluster_host_cv := "cv"
+cluster_host_jz := "jz"
+cluster_repo_cv := "~/work/research-project-template"
+cluster_repo_jz := "/lustre/fswork/projects/rech/nwq/uim47nr/research-project-template"
+
 install:
 	uv run pre-commit install
 	uv sync
@@ -26,29 +31,84 @@ launch cluster experiment *args:
 run-experiment *args:
     uv run -m scripts.run_experiment {{args}}
 
-@retrieve cluster experiment:
-	if [ "{{cluster}}" = "cv" ]; then \
-		scp -r cv:~/work/benchmarl-training/results/experiments/{{experiment}} ./results/experiments/; \
-	else \
-		scp -r jz:/lustre/fswork/projects/rech/nwq/uim47nr/benchmarl-training/results/experiments/{{experiment}} ./results/experiments/; \
-	fi
-	@# Retrieved experiment {{experiment}} from {{cluster}}
+retrieve cluster experiment:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	case "{{cluster}}" in
+		cv)
+			src="{{cluster_host_cv}}:{{cluster_repo_cv}}/results/experiments/{{experiment}}"
+			;;
+		jz)
+			src="{{cluster_host_jz}}:{{cluster_repo_jz}}/results/experiments/{{experiment}}"
+			;;
+		*)
+			echo "unknown cluster: {{cluster}} (expected cv or jz)" >&2
+			exit 1
+			;;
+	esac
+	echo "Retrieving {{experiment}} from {{cluster}}..."
+	scp -r "$src" ./results/experiments/
 
-@retrieve-and-sync cluster:
-	if [ "{{cluster}}" = "cv" ]; then \
-		scp -r cv:~/work/benchmarl-training/results/experiments/*/wandb/offline-run-* ./results/wandb/; \
-	else \
-		scp -r jz:/lustre/fswork/projects/rech/nwq/uim47nr/benchmarl-training/results/experiments/*/wandb/offline-run-* ./results/wandb/; \
-	fi
-	@# Retrieved offline wandb logs from {{cluster}}
+retrieve-and-sync cluster:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	case "{{cluster}}" in
+		cv)
+			src="{{cluster_host_cv}}:{{cluster_repo_cv}}/results/experiments/*/wandb/offline-run-*"
+			;;
+		jz)
+			src="{{cluster_host_jz}}:{{cluster_repo_jz}}/results/experiments/*/wandb/offline-run-*"
+			;;
+		*)
+			echo "unknown cluster: {{cluster}} (expected cv or jz)" >&2
+			exit 1
+			;;
+	esac
+	echo "Retrieving offline wandb runs from {{cluster}}..."
+	scp -r $src ./results/wandb/
+	echo "Syncing wandb..."
 	uv run wandb sync results/wandb/*
-	@# Synced offline wandb logs from {{cluster}}
 
+sync-to cluster:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	case "{{cluster}}" in
+		cv)
+			repo='{{cluster_repo_cv}}'
+			;;
+		jz)
+			repo='{{cluster_repo_jz}}'
+			;;
+		*)
+			echo "unknown cluster: {{cluster}} (expected cv or jz)" >&2
+			exit 1
+			;;
+	esac
+	echo "Updating local branch tr from main..."
+	git fetch -q . main:tr
+	echo "Pushing tr to {{cluster}}..."
+	git push -q "{{cluster}}" tr
+	echo "Fast-forward main from tr on {{cluster}}..."
+	ssh -q "{{cluster}}" "cd $repo && git checkout -q main && git merge -q tr --ff-only"
 
-push-to cluster:
-	git fetch . main:tr
-	git push {{cluster}} tr
-
-pull-from cluster:
-	git fetch {{cluster}} tr:tr
-	git merge tr --ff-only
+sync-from cluster:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	case "{{cluster}}" in
+		cv)
+			repo='{{cluster_repo_cv}}'
+			;;
+		jz)
+			repo='{{cluster_repo_jz}}'
+			;;
+		*)
+			echo "unknown cluster: {{cluster}} (expected cv or jz)" >&2
+			exit 1
+			;;
+	esac
+	echo "Fetching main:tr on {{cluster}}..."
+	ssh -q "{{cluster}}" "cd $repo && git fetch -q . main:tr"
+	echo "Fetching tr from {{cluster}}..."
+	git fetch -q "{{cluster}}" tr:tr
+	echo "Merging tr --ff-only locally..."
+	git merge -q tr --ff-only

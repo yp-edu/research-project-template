@@ -12,8 +12,7 @@
 
 ## Cluster (optional)
 
-- Launch scripts live under `launch/` (see `launch/README.md`).
-- Hydra launchers are under `configs/hydra/launcher/`.
+- Cluster workflow is documented in the root `README.md` (**Cluster Config**). Hydra submitit launchers are under `configs/hydra/launcher/`; git sync and retrieval use the `Justfile`.
 
 ## Adding dependencies
 

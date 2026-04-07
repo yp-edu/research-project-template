@@ -5,5 +5,5 @@
 - **Configs**: Add or edit YAML under `configs/<script_name>/`. Defaults in `configs/run_experiment.yaml` use `optional <script>: null`; new scripts require a new default line and a matching config directory.
 - **Outputs**: Hydra writes to `results/hydra/...` (git-ignored). Logging (e.g. wandb) is configured in the default config.
 - **Tests**: Add or extend tests under `tests/` (e.g. `tests/unit/test_core.py`); run with `uv run pytest`.
-- **Launch**: For cluster/slurm, use scripts in `launch/` (e.g. `launch/cv/experiment.sh`); see `launch/README.md`.
+- **Cluster**: For Slurm/submitit, see **Cluster Config** in the root `README.md`, `configs/hydra/launcher/`, and the `Justfile` (`just launch`, sync/retrieve recipes).
 - **Code**: Core logic lives in `src/research_project_template/`; import in script modules as needed. Keep changes small and reviewable.

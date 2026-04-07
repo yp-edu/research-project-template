@@ -14,7 +14,7 @@ description: "Patterns and checklists for designing and refining experiments in 
 ## Instructions
 
 - Use `references/design-checklist.md` for the minimal information every experiment needs.
-- Refer to the existing structure (`scripts/run_experiment.py`, `configs/`, `launch/`) when mapping designs to code.
+- Refer to the existing structure (`scripts/run_experiment.py`, `configs/`, `configs/hydra/launcher/`, root `README.md` Cluster Config) when mapping designs to code.
 
 When designing experiments:
 

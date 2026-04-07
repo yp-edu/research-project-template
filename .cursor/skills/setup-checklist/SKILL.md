@@ -22,10 +22,11 @@ description: "First-time template setup checklist: metadata, structure, environm
    - Target venue (if any) and high-level problem statement.
 
 2. **Structure**
-   - Confirm you can locate `configs/`, `scripts/`, `launch/`, `latex/`, `docs/`, `results/`.
+   - Confirm you can locate `configs/`, `scripts/`, `latex/`, `docs/`, `results/`.
    - Ensure `docs/PROJECT_STATUS.md` exists and phase is set (e.g. `setup`); create or update via **project-status** skill.
-   - Confirm experiment entrypoints (`scripts/run_experiment.py`, `launch/*`) and config roots (`configs/`, `configs/hydra/`) are understood.
+   - Confirm experiment entrypoints (`scripts/run_experiment.py`, `Justfile` for cluster helpers) and config roots (`configs/`, `configs/hydra/`) are understood.
    - **Package rename**: If project name differs from `research-project-template`, derive package name (`project_name.replace("-", "_")`), rename `src/research_project_template` to `src/<package_name>`, and update all imports and references. Use `references/package-renaming.md` for the procedure.
+   - **Cluster paths**: If you use `just sync-to`, `sync-from`, or `retrieve`, update the `cluster_repo_*` (and `cluster_host_*`) values at the top of the `Justfile` so they match your clone directory name on each cluster and your HPC filesystem path (the default Jean Zay path is an example; replace project/login segments if your allocation differs).
 
 3. **Environment**
    - Dependencies: `uv sync` (or equivalent) so the project runs.

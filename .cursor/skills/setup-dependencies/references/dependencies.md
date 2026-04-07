@@ -12,7 +12,7 @@
 
 ## Cluster (optional)
 
-- Cluster workflow is documented in the root `README.md` (**Cluster Config**). Hydra submitit launchers are under `configs/hydra/launcher/`; git sync and retrieval use the `Justfile`.
+- Cluster workflow is documented in the root `README.md` (**Cluster Config**). Hydra submitit launchers are under `configs/hydra/launcher/`; git sync and retrieval use the `Justfile`. For Hydra + submitit, the driver blocks until jobs finish; the README recommends **tmux** so you can detach SSH safely.
 
 ## Adding dependencies
 

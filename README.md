@@ -64,6 +64,23 @@ just launch jz-dev groups_optuna demo=first
 
 `just launch <launcher> <sweeper>` runs `uv run -m scripts.run_experiment -m …` with `hydra/launcher=<launcher>` and `hydra/sweeper=<sweeper>`; append further Hydra overrides as additional arguments.
 
+#### tmux (recommended for submitit)
+
+The Hydra + submitit driver **stays attached** until every submitted Slurm job in that multirun finishes (it orchestrates the sweep). If you close SSH without planning for that, the driver can be killed and the run may fail or leave jobs in an awkward state.
+
+**[tmux](https://github.com/tmux/tmux/wiki)** (or `screen`) is the usual pattern: run the launch command inside a persistent session, detach, and reconnect later from the same or another login node.
+
+```bash
+tmux new -s sweep
+# inside the session:
+just launch jz-dev groups_optuna demo=first
+# detach: Ctrl+b, then d
+# later (any login node):
+tmux attach -t sweep
+```
+
+Use a distinct session name per project or sweep (`tmux new -s myproj-hparam`). List sessions with `tmux ls`. This is complementary to **`sbatch`** (below), which returns immediately and does not need tmux for disconnection.
+
 ### Sync code with the cluster (git)
 
 Remote clone paths and SSH host aliases are defined once at the top of the [`Justfile`](./Justfile) (`cluster_host_*`, `cluster_repo_*`). Defaults use the template directory name `research-project-template` and an example Jean Zay path under `/lustre/fswork/projects/rech/<project>/<login>/` (edit `nwq` / `uim47nr` to match your allocation if needed). After **project setup** (fork rename or a different clone directory), update `cluster_repo_*` so they match the real paths on each machine.
@@ -88,7 +105,7 @@ You can submit a one-off Slurm job with a minimal script that only runs your ent
 sbatch --wrap='srun uv run -m scripts.run_experiment demo=first'
 ```
 
-Adapt `#SBATCH` resource flags to your site (or use `salloc` / submitit above).
+Adapt `#SBATCH` resource flags to your site (or use `salloc` / Hydra + submitit above). Unlike submitit, `sbatch` returns right after scheduling; for long Hydra + submitit runs, use **tmux** as described under **Submit jobs (Hydra + submitit)** above.
 
 ### Sync Weights & Biases logs
 

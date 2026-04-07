@@ -23,13 +23,13 @@ sync-experiments clean="":
 		rm -r results/experiments/*/wandb/offline-run-*; \
 	fi
 
+run-experiment *args:
+	uv run -m scripts.run_experiment {{args}}
+
 launch cluster experiment *args:
-	uv run -m scripts.run_experiment -m {{args}} \
+	just run-experiment -m {{args}} \
 		hydra/launcher={{cluster}} \
 		hydra/sweeper={{experiment}}
-
-run-experiment *args:
-    uv run -m scripts.run_experiment {{args}}
 
 retrieve cluster experiment:
 	#!/usr/bin/env bash

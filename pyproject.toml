@@ -9,19 +9,19 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "hydra-core>=1.3.2",
-    "hydra-optuna-sweeper>=1.2.0",
-    "hydra-submitit-launcher>=1.2.0",
-    "ipykernel>=6.29.5",
-    "loguru>=0.7.3",
-    "wandb>=0.19.9",
+    "hydra-core",
+    "hydra-optuna-sweeper",
+    "hydra-submitit-launcher",
+    "ipykernel",
+    "loguru",
+    "wandb",
 ]
 
 [dependency-groups]
 dev = [
-    "pre-commit>=4.0.1",
-    "pytest>=8.3.5",
-    "pytest-cov>=6.1.1",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
 ]
 
 [build]

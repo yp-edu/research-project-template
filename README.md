@@ -34,7 +34,13 @@ Using `uv` to manage python dependencies and run scripts.
 
 ## Scripts
 
-This project uses [Just](https://github.com/casey/just) to manage scripts, refer to their instructions for installation.
+This project uses [Just](https://github.com/casey/just) to manage scripts. With `uv` (see [Python Config](#python-config)), install the CLI as a tool:
+
+```bash
+uv tool install rust-just
+```
+
+For platform-specific or binary installs, see [Just's installation docs](https://github.com/casey/just#installation).
 
 ## Cluster Config
 

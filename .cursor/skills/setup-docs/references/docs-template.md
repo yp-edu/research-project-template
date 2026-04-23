@@ -1,10 +1,29 @@
 # Docs Bootstrap Template
 
-Create or update `docs/README.md` with:
+Create or update these files:
 
-1. **Project overview** (1–3 sentences).
-2. **Links and resources** (papers, repos, datasets, trackers).
-3. **Notes log** (date + short bullet summaries).
-4. **Artifacts index** (status, literature notes, experiments notes).
+1. **`docs/README.md`**
+   - Snapshot
+   - Research focus
+   - Key artifacts
+   - Memory index
+   - Next steps
+   - Open questions / decisions
+2. **`docs/questions/README.md`**
+   - Problem framing
+   - Primary questions
+   - Hypotheses
+   - Evaluation criteria
+3. **`docs/literature/README.md`**
+   - Search focus
+   - Seed papers
+   - Themes and gaps
+   - Notes index
+4. **`docs/experiments/README.md`**
+   - Active tracks
+   - Baselines
+   - Planned runs
+   - Result index
+   - Decisions and lessons
 
-Keep it short and editable; the goal is a living project meta doc, not the final paper.
+Keep the memory short and editable; the goal is durable project context, not a second copy of the paper.

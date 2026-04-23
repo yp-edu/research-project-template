@@ -6,8 +6,12 @@
                 "tool",
                 "run",
                 "arxiv-mcp-server",
-                "--storage-path", "./results/arxiv-mcp-server"
+                "--storage-path",
+                "${workspaceFolder}/results/arxiv-mcp-server"
             ]
+        },
+        "exa": {
+            "url": "https://mcp.exa.ai/mcp?exaApiKey=${env:EXA_API_KEY}"
         }
     }
 }

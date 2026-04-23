@@ -11,16 +11,28 @@ KISS research project template built for Cursor IDE, Python, and LaTeX.
 
 ## Artifacts
 
-- **`docs/`** — Tracked project artifacts (versioned). Use for project status, notes, and documentation. The planning source of truth is [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md).
+- **`docs/README.md`** — Main tracked project memory. Keep it short, human-readable, and current.
+- **`docs/questions/README.md`** — Research questions, hypotheses, and evaluation criteria.
+- **`docs/literature/README.md`** — Literature search focus, seed papers, and notes index.
+- **`docs/experiments/README.md`** — Experiment plans, run index, and decisions.
 - **`results/`** — Untracked outputs (git-ignored). Use for experiment runs, logs, checkpoints, and generated figures.
 
-After forking, run the **project-setup** command and keep `docs/PROJECT_STATUS.md` updated. See [Commands](#commands) below.
+After forking, run the **project-setup** command so Cursor can fill the scaffolding. See [Commands](#commands) below.
 
 ## AI Config
 
-This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder, which you should tailor to your needs (especially the [rules](.cursor/rules/)).
+This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder.
 
-You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json), be sure to check the `--storage-path` of the `arxiv-mcp-server`. You can find more MCP servers in [Playbooks](https://playbooks.com/) or [Smithery](https://smithery.ai/).
+- Keep [`.cursor/rules/`](.cursor/rules/) short and general.
+- Treat [`.cursor/commands/`](.cursor/commands/) as the main entry points.
+- Use [`.cursor/agents/`](.cursor/agents/) for specialist roles.
+- Keep project memory in `docs/`, not buried in prompts.
+
+You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json) and repo-level hooks in [`.cursor/hooks.json`](.cursor/hooks.json). Set `EXA_API_KEY` in your shell environment to enable Exa web search without hardcoding the secret.
+
+```bash
+export EXA_API_KEY="your-key-here"
+```
 
 ## Latex Workshop Config
 
@@ -174,4 +186,4 @@ find . ! -name . -prune -type d -exec sh -c '
 
 ## Commands
 
-Repeatable workflows (run from Cursor command palette or chat): **project-setup**, **literature-review**, **design-experiments**, **write-paper**, **whats-next**, **review-paper**. Definitions live in [`.cursor/commands/`](.cursor/commands/).
+These are the main Cursor entry points for the template: **project-setup**, **literature-review**, **design-experiments**, **write-paper**, **whats-next**, **review-paper**. Definitions live in [`.cursor/commands/`](.cursor/commands/).

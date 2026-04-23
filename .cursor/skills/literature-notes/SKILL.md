@@ -15,4 +15,4 @@ description: "One-paper-per-note structure and grouping by theme; output is stru
 - Use `references/note-structure.md` for the required fields per paper.
 - **Per paper**: Capture citation, problem/setting, method/key ideas, datasets/metrics, main results, limitations, and relevance to this project.
 - **Grouping**: After notes are written, group papers into themes (e.g. "Baselines", "Prior methods for X", "Datasets") that map to background or related-work subsections.
-- **Output**: Structured notes (in `docs/` or as specified) plus a short index of themes and which papers belong to each. Do not yet write prose; that is done by **background-writing**.
+- **Output**: Structured notes in `docs/literature/README.md` or adjacent literature note files, plus a short index of themes and which papers belong to each. Do not yet write prose; that is done by **background-writing**.

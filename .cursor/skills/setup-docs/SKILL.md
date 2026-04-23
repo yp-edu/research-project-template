@@ -1,6 +1,6 @@
 ---
 name: setup-docs
-description: "Create initial docs/README.md and meta docs for the project."
+description: "Create the initial lightweight project memory files under docs/."
 ---
 
 # Setup Docs Skill
@@ -8,10 +8,10 @@ description: "Create initial docs/README.md and meta docs for the project."
 ## When to Use
 
 - The project is newly forked and needs initial meta documentation.
-- You want a lightweight docs home to track status, notes, and links.
+- You want a lightweight docs home to track project memory without duplicating the real work.
 
 ## Instructions
 
-- Use `references/docs-template.md` for the structure of `docs/README.md`.
-- Keep docs minimal and maintainable; avoid writing the paper here.
-- Ensure `docs/PROJECT_STATUS.md` remains the planning source of truth.
+- Use `references/docs-template.md` for the structure of the memory files under `docs/`.
+- Keep docs minimal and maintainable; avoid turning them into a second paper or a dashboard.
+- Treat `docs/README.md` as the main project memory file and the sibling `docs/*/README.md` files as focused memory for questions, literature, and experiments.

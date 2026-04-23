@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "python3 .cursor/hooks/session_memory.py"
+      }
+    ],
+    "beforeReadFile": [
+      {
+        "command": "python3 .cursor/hooks/protect_sensitive_files.py",
+        "failClosed": true
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "python3 .cursor/hooks/guard_risky_shell.py"
+      }
+    ]
+  }
+}

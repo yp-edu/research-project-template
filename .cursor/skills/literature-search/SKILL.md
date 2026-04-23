@@ -14,6 +14,7 @@ description: "Queries, venues, time windows, and inclusion/exclusion criteria; o
 
 - **Input**: Precise topic, constraints (e.g. domain, task), and any seed papers or venues.
 - **Output**: A list of papers (citation + 1–2 line relevance) plus short rationale for inclusion (why each fits the topic/constraints).
+- Prefer MCP-backed search when available: use Exa for broad web and paper discovery, and use the arXiv MCP server for direct arXiv lookups or follow-up metadata.
 
 **Process:**
 

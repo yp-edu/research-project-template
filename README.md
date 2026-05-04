@@ -14,22 +14,14 @@ KISS research project template built for agents.
 - `src/` contains reusable Python package code.
 - `scripts/` contains experiment entrypoints.
 - `configs/` contains experiment configs.
-- `docs/` contains project notes, questions, literature, and experiment conclusions.
+- `docs/` contains project status, questions, literature, and experiment conclusions.
 - `latex/` contains the paper.
 - `results/` is untracked scratch space for logs, outputs, checkpoints, and generated artifacts.
 - `AGENTS.md` contains the operational guidelines.
 
-## Getting Started
-
-1. Set the project slug, Python package name, and paper title.
-2. Update `pyproject.toml`, `docs/README.md`, and `latex/main.tex`.
-3. If the package name changes, rename `src/research_project_template/` and update imports.
-4. If using cluster helpers, update `cluster_repo_*` and `cluster_host_*` in `Justfile`.
-5. Run `uv sync`.
-
 ## Commands
 
-Use `uv` for Python work:
+Python environment and package commands:
 
 ```bash
 uv sync
@@ -37,7 +29,7 @@ uv add <package>
 uv run -m scripts.run_experiment demo=first
 ```
 
-Use `just` for reusable recipes:
+Reusable recipes:
 
 ```bash
 uv tool install rust-just
@@ -47,7 +39,7 @@ just tests
 just run-experiment demo=first
 ```
 
-Launch cluster or sweep runs through the existing recipes:
+Cluster or sweep launch recipe:
 
 ```bash
 just launch jz_t4 groups_optuna demo=first
@@ -56,7 +48,3 @@ just launch jz_t4 groups_optuna demo=first
 ## LaTeX
 
 The paper lives in `latex/`. The LaTeX Workshop output directory is `%WORKSPACE_FOLDER%/latex/build/`.
-
-## Project Memory
-
-Use `docs/README.md` as the short dashboard. Put questions in `docs/questions/`, literature notes in `docs/literature/`, and experiment plans or conclusions in `docs/experiments/`.

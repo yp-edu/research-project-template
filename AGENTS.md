@@ -1,86 +1,54 @@
-# AGENTS.md
+# Repository Guidance
 
-## Getting Started
+## Project Contract
 
-- First setup should establish the project slug, Python package name, paper title, basic docs identity, and any cluster paths in `Justfile`.
+- This repository is a research project template for turning user ideas, intuitions, and hunches into research questions, experiments, claims, decisions, and paper text.
+- First setup establishes the project slug, Python package name, paper title, documentation identity, and any cluster paths in `Justfile`.
 - If the project name changes, derive the package name with `project_name.replace("-", "_")`, then rename `src/research_project_template/` and update imports, tests, notebooks, and `pyproject.toml`.
-- Use `uv` for Python work: `uv sync` for installation, `uv add <package>` for dependencies, and `uv run ...` for commands. Do not rely on manual virtualenv activation or `pip install` by default.
-- Keep project-specific identity in `docs/` and `latex/`, not in this file.
+- Keep project-specific identity in `docs/`, `latex/`, `pyproject.toml`, and cluster config, not in this file.
 
-## Project Structure
+## Structure
 
 - `src/` contains reusable package code.
-- `scripts/` contains runnable entrypoints.
+- `scripts/` contains runnable experiment entrypoints.
 - `configs/` contains reproducible experiment configuration.
-- `docs/` contains project memory, research questions, literature notes, and experiment conclusions.
+- `docs/` contains project memory: status, questions, claims, decisions, literature, and experiment conclusions.
 - `latex/` contains the paper and bibliography.
-- `results/` is untracked scratch space for raw logs, outputs, checkpoints, and generated artifacts.
+- `results/` is untracked scratch space for raw logs, outputs, checkpoints, generated artifacts, and bulky run data.
 - `notebooks/` is for exploration; move reusable logic to `src/` and reproducible runs to `scripts/` plus `configs/`.
 
-## Documenting The Project
+## Documentation
 
-- Keep `docs/README.md` as a short dashboard with the current state, key links, and a few TL;DR decisions.
-- Use `docs/questions/` for research questions, limitations, low-hanging fruits, scientific locks, and explored or abandoned directions.
-- Use `docs/literature/` for simple paper notes and take-home messages.
-- Use `docs/experiments/` for experiment plans and concise conclusions.
-- Notes may be lightweight; a file with only `# Title` and clear bullets is acceptable.
+- `docs/README.md` is the project-status dashboard: current state, key claims, decisions, active questions, recent experiments, and links.
+- Every first-level folder under `docs/` has its own `AGENTS.md` with local documentation rules.
+- `docs/*/README.md` files are category dashboards; they start with only a title and grow into linked status lists and factual summaries, not instructions.
+- Research questions should converge to a claim, a decision to defer or cancel, or an experiment that can answer them.
+- Experiments should record conclusions after they run; raw outputs stay in `results/`.
+- Link docs, configs, scripts, results, and paper sections when the link improves traceability.
 
-## Ideation
+## Ideation And Experiments
 
-- Treat ideation as supervisor-led unless asked otherwise.
-- Capture research directions, assumptions, risks, and open decisions in `docs/questions/`.
-- Keep only short summaries in `docs/README.md`; the authoritative evolving story belongs in `latex/`.
-
-## Literature Review
-
-- Keep literature notes simple: citation/link, context, take-home message, and relevance to the project.
-- Consolidate coherent background and related-work material into `latex/` as the project evolves.
-- Cross-reference notes, paper sections, and experiments when useful.
-
-## Experimenting
-
-- Define the experiment before coding when possible: hypothesis, expected result, config, metric, and decision rule.
+- Treat ideation as collaborative and supervisor-led unless asked otherwise.
+- Push back constructively during ideation and writing: question the value of the work, the likely reviewer objection, and what evidence would make the contribution worth testing or publishing.
+- Convert vague ideas into testable questions by making assumptions, expected evidence, metrics, and decision rules explicit.
+- Prefer defining an experiment before coding: hypothesis, config, metric, baseline or comparison, expected result, and what outcome would change the project direction.
 - Implement only the code needed to answer the current question.
-- After running, update the experiment note with actual results and a concise conclusion.
+- Keep scripts thin and config-driven so the same entrypoint can run locally, in sweeps, and on a cluster.
+- Store experiment configs under `configs/` with names that identify the run without opening raw logs.
+- After a run, update the experiment note with actual results, result location, conclusion, and any resulting claim or decision.
 
-## Writing The Paper
+## Python And Runs
 
-- Write in `latex/` throughout the project, even if the first version is rough.
-- Keep claims aligned with code, configs, literature notes, and experiment results.
-- Prefer quick draft sections early over waiting for polished final results.
-
-## Packaging
-
-- Put reusable logic in the Python package under `src/` so scripts, notebooks, and future projects can import it.
-- Keep scripts thin; they should orchestrate package code rather than contain reusable implementations.
-- Update `pyproject.toml` with `uv add <package>` instead of ad hoc installs.
-
-## Scripts
-
+- Use `uv` for Python work: `uv sync` for installation, `uv add <package>` for dependencies, and `uv run ...` for commands.
+- Do not rely on manual virtualenv activation or `pip install` by default.
 - Run scripts with `uv run`, for example `uv run -m scripts.run_experiment demo=first`.
-- Prefer reusable `just` recipes for common commands.
-- Keep scripts config-driven so the same entrypoint can run locally and on a cluster.
+- Prefer reusable `just` recipes for common commands: `just checks`, `just tests`, `just run-experiment demo=first`, and cluster launches through `just launch ...`.
+- Put stable reusable logic in `src/`; test stable, reusable, or high-risk package logic with `uv run pytest`.
 
-## Config
+## Paper
 
-- Describe each experiment through config whenever practical.
-- Keep config names meaningful enough to understand the run without opening raw logs.
-- Prefer explicit overrides and committed configs for reproducibility.
-
-## Results
-
-- Use `results/` as scratch space for raw outputs, logs, checkpoints, and generated files.
-- Do not treat `results/` as project memory.
-- Move clear conclusions, links to important runs, or final figures into `docs/experiments/` or `latex/`.
-
-## Cross-Reference
-
-- Link docs, configs, scripts, results, and paper sections when it improves traceability.
-- Important claims should point to evidence or clearly marked assumptions.
-- Prefer a few useful links over exhaustive bookkeeping.
-
-## Testing
-
-- Do not over-test fast-changing research code.
-- Test stable, reusable, or high-risk package logic.
-- Use `uv run pytest` for tests and keep coverage thresholds pragmatic.
+- Write paper material in `latex/` throughout the project, even when rough.
+- Keep claims aligned with code, configs, literature notes, and experiment results.
+- Consolidate coherent background, related work, method, and result narratives into `latex/` as evidence accumulates.
+- Add appendices when they improve traceability or credibility: broader experiments, initial setup, additional exposition, software, models, datasets, prompts, hyperparameters, or implementation details.
+- Review paper drafts thoroughly for contribution, evidence, missing baselines, limitations, reviewer objections, claim strength, and consistency with documented experiments.

@@ -2,188 +2,61 @@
 
 [![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/yp-edu/research-project-template/blob/main/LICENSE)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://docs.astral.sh/ruff/)
 [![python versions](https://img.shields.io/badge/python-3.11%20|%203.12-blue)](https://www.python.org/downloads/)
-[![Latex](https://img.shields.io/badge/latex-grey.svg?logo=latex)](https://www.latex-project.org/)
+[![LaTeX](https://img.shields.io/badge/latex-grey.svg?logo=latex)](https://www.latex-project.org/)
 ![ci](https://github.com/yp-edu/research-project-template/actions/workflows/ci.yml/badge.svg)
 
-KISS research project template built for Cursor IDE, Python, and LaTeX.
+KISS research project template built for agents.
 
-## Artifacts
+## Layout
 
-- **`docs/README.md`** — Main tracked project memory. Keep it short, human-readable, and current.
-- **`docs/questions/README.md`** — Research questions, hypotheses, and evaluation criteria.
-- **`docs/literature/README.md`** — Literature search focus, seed papers, and notes index.
-- **`docs/experiments/README.md`** — Experiment plans, run index, and decisions.
-- **`results/`** — Untracked outputs (git-ignored). Use for experiment runs, logs, checkpoints, and generated figures.
+- `src/` contains reusable Python package code.
+- `scripts/` contains experiment entrypoints.
+- `configs/` contains experiment configs.
+- `docs/` contains project notes, questions, literature, and experiment conclusions.
+- `latex/` contains the paper.
+- `results/` is untracked scratch space for logs, outputs, checkpoints, and generated artifacts.
+- `AGENTS.md` contains the operational guidelines.
 
-After forking, run the **project-setup** command so Cursor can fill the scaffolding. See [Commands](#commands) below.
+## Getting Started
 
-## AI Config
-
-This repo assumes you are using Cursor IDE, hence the [`.cursor`](.cursor) folder.
-
-- Keep [`.cursor/rules/`](.cursor/rules/) short and general.
-- Treat [`.cursor/commands/`](.cursor/commands/) as the main entry points.
-- Use [`.cursor/agents/`](.cursor/agents/) for specialist roles.
-- Keep project memory in `docs/`, not buried in prompts.
-
-You'll find MCP servers configured in [`.cursor/mcp.json`](.cursor/mcp.json) and repo-level hooks in [`.cursor/hooks.json`](.cursor/hooks.json). Set `EXA_API_KEY` in your shell environment to enable Exa web search without hardcoding the secret.
-
-```bash
-export EXA_API_KEY="your-key-here"
-```
-
-## Latex Workshop Config
-
-After setting-up Latex (e.g. with TeX Live), download the latex workshop extension from [here](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
-
-This project uses the following latex workshop outdir: `%WORKSPACE_FOLDER%/latex/build/`.
-
-## Python Config
-
-Using `uv` to manage python dependencies and run scripts.
-
-## Scripts
-
-This project uses [Just](https://github.com/casey/just) to manage scripts. With `uv` (see [Python Config](#python-config)), install the CLI as a tool:
-
-```bash
-uv tool install rust-just
-```
-
-For platform-specific or binary installs, see [Just's installation docs](https://github.com/casey/just#installation).
-
-## Cluster Config
-
-This project targets Slurm clusters (e.g. Jean Zay) using [Hydra](https://hydra.cc/) with [hydra-submitit-launcher](https://github.com/facebookresearch/hydra/tree/main/plugins/hydra_submitit_launcher). Launcher profiles live in [`configs/hydra/launcher/`](./configs/hydra/launcher/).
-
-### Submit jobs (Hydra + submitit)
-
-From the cluster login or head node, run the experiment module with a launcher override, for example:
-
-```bash
-uv run -m scripts.run_experiment -m demo=first \
-    hydra/sweeper=groups_optuna \
-    hydra/launcher=jz-dev
-```
-
-With [Just](https://github.com/casey/just) (see [Scripts](#scripts)):
-
-```bash
-just launch jz-dev groups_optuna demo=first
-```
-
-`just launch <launcher> <sweeper>` runs `uv run -m scripts.run_experiment -m …` with `hydra/launcher=<launcher>` and `hydra/sweeper=<sweeper>`; append further Hydra overrides as additional arguments.
-
-#### tmux (recommended for submitit)
-
-The Hydra + submitit driver **stays attached** until every submitted Slurm job in that multirun finishes (it orchestrates the sweep). If you close SSH without planning for that, the driver can be killed and the run may fail or leave jobs in an awkward state.
-
-**[tmux](https://github.com/tmux/tmux/wiki)** (or `screen`) is the usual pattern: run the launch command inside a persistent session, detach, and reconnect later from the same or another login node.
-
-```bash
-tmux new -s sweep
-# inside the session:
-just launch jz-dev groups_optuna demo=first
-# detach: Ctrl+b, then d
-# later (any login node):
-tmux attach -t sweep
-```
-
-Use a distinct session name per project or sweep (`tmux new -s myproj-hparam`). List sessions with `tmux ls`. This is complementary to **`sbatch`** (below), which returns immediately and does not need tmux for disconnection.
-
-### Sync code with the cluster (git)
-
-Remote clone paths and SSH host aliases are defined once at the top of the [`Justfile`](./Justfile) (`cluster_host_*`, `cluster_repo_*`). Defaults use the template directory name `research-project-template` and an example Jean Zay path under `/lustre/fswork/projects/rech/<project>/<login>/` (edit `nwq` / `uim47nr` to match your allocation if needed). After **project setup** (fork rename or a different clone directory), update `cluster_repo_*` so they match the real paths on each machine.
-
-- **`just sync-to cv`** or **`just sync-to jz`** — update local branch `tr` from `main`, push `tr` to the remote, then on the cluster `checkout main` and fast-forward merge `tr`.
-- **`just sync-from cv`** or **`just sync-from jz`** — fetch on the cluster, fetch `tr` locally, merge `tr` into your current branch.
-
-Requires git remotes named `cv` / `jz` (or matching your `cluster` argument) and a branch `tr` used for transfer, as in **Setup Git** below.
-
-### Interactive Slurm
-
-```bash
-salloc --gpus 1 -A nwq@v100
-srun uv run -m scripts.run_experiment demo=first
-```
-
-### Optional: batch without Hydra
-
-You can submit a one-off Slurm job with a minimal script that only runs your entrypoint, for example:
-
-```bash
-sbatch --wrap='srun uv run -m scripts.run_experiment demo=first'
-```
-
-Adapt `#SBATCH` resource flags to your site (or use `salloc` / Hydra + submitit above). Unlike submitit, `sbatch` returns right after scheduling; for long Hydra + submitit runs, use **tmux** as described under **Submit jobs (Hydra + submitit)** above.
-
-### Sync Weights & Biases logs
-
-Offline runs can be synced with:
-
-```bash
-just sync-experiments
-```
-
-Set **`WANDB_API_KEY`** in the environment (or paste when prompted).
-
-### Notebooks on the cluster
-
-See [`notebooks/`](./notebooks/) to run notebooks on a cluster JupyterHub.
-
-### Setup Git (on the cluster)
-
-Initialize or clone your project, add a remote for your laptop, and use a dedicated transfer branch:
-
-```bash
-mkdir research-project-template
-cd research-project-template
-git init
-```
-
-```bash
-git remote add jz <remote_url>
-```
-
-```bash
-git branch tr
-git push --set-upstream jz tr
-```
-
-### Setup `uv` (on the cluster)
-
-Follow the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/#standalone-installer), then:
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv sync
-```
-
-### Jean Zay notes
-
-**Head node vs compute.** Jean Zay does not support the usual remote VS Code server workflow; options include `rsync` or `sshfs` ([VS Code troubleshooting](https://code.visualstudio.com/docs/remote/troubleshooting#_using-sshfs-to-access-files-on-your-remote-host)). Compute nodes are often offline; install dependencies and assets on the head node. For `uv` on compute you can use `--no-sync` where appropriate.
-
-**Quotas.** Per-user and per-project disk/inode: `idr_quota_user`, `idr_quota_project` ([IDRIS](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-quota-eng.html)).
-
-**Allocation.** `idracct`, projects via `idrproj`, fair share via `idr_compuse` ([account doc](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-doc_account-eng.html)).
-
-**Inodes by directory** ([reference](https://unix.stackexchange.com/questions/4105/how-do-i-count-all-the-files-recursively-through-directories)):
-
-```bash
-find . ! -name . -prune -type d -exec sh -c '
-  for dir do
-    dir="${dir#./}"
-    printf "%s:\t" "$dir"
-    find ".//$dir" -type f | grep -c //
-  done' sh {} +
-```
-
-**Monitor jobs.** `squeue -u <user>`, then SSH to the node and use `top`, `htop`, `nvidia-smi`, etc. ([IDRIS](http://www.idris.fr/eng/jean-zay/jean-zay-connexion_ssh_noeud_calcul-eng.html)).
-
-**Links.** [Jean Zay Slurm partitions](http://www.idris.fr/eng/jean-zay/gpu/jean-zay-gpu-exec_partition_slurm-eng.html), [BigScience Slurm how-to](https://github.com/bigscience-workshop/bigscience/blob/master/jz/slurm/README.md).
+1. Set the project slug, Python package name, and paper title.
+2. Update `pyproject.toml`, `docs/README.md`, and `latex/main.tex`.
+3. If the package name changes, rename `src/research_project_template/` and update imports.
+4. If using cluster helpers, update `cluster_repo_*` and `cluster_host_*` in `Justfile`.
+5. Run `uv sync`.
 
 ## Commands
 
-These are the main Cursor entry points for the template: **project-setup**, **literature-review**, **design-experiments**, **write-paper**, **whats-next**, **review-paper**. Definitions live in [`.cursor/commands/`](.cursor/commands/).
+Use `uv` for Python work:
+
+```bash
+uv sync
+uv add <package>
+uv run -m scripts.run_experiment demo=first
+```
+
+Use `just` for reusable recipes:
+
+```bash
+uv tool install rust-just
+just install
+just checks
+just tests
+just run-experiment demo=first
+```
+
+Launch cluster or sweep runs through the existing recipes:
+
+```bash
+just launch jz_t4 groups_optuna demo=first
+```
+
+## LaTeX
+
+The paper lives in `latex/`. The LaTeX Workshop output directory is `%WORKSPACE_FOLDER%/latex/build/`.
+
+## Project Memory
+
+Use `docs/README.md` as the short dashboard. Put questions in `docs/questions/`, literature notes in `docs/literature/`, and experiment plans or conclusions in `docs/experiments/`.

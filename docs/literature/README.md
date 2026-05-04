@@ -1,19 +1,13 @@
-# Literature Memory
+# Literature Review
 
-## Search Focus
+Use this directory for lightweight paper notes and reading trails.
 
-- Topic:
-- Constraints:
-- Venues or time window:
+Keep notes short and useful:
 
-## Seed Papers
+- Citation or link
+- One-line take-home message
+- Why it matters for this project
+- Useful method, baseline, dataset, limitation, or claim
+- Cross-links to `docs/questions/`, `docs/experiments/`, or `latex/`
 
-- Add seed papers here.
-
-## Themes And Gaps
-
-- Add grouped themes, baselines, and gaps here.
-
-## Notes Index
-
-- Add note links or short paper bullets here.
+Move coherent background and related-work synthesis into the paper as the project evolves.

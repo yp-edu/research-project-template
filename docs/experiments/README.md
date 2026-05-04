@@ -1,21 +1,17 @@
-# Experiment Memory
+# Experiments
 
-## Active Tracks
+Use this directory for experiment plans and concise conclusions.
 
-- Add active experiment tracks here.
+Prefer writing the plan before coding or launching runs. A note can be lightweight, but should make the purpose clear.
 
-## Baselines
+Useful fields when relevant:
 
-- Add baseline runs or references here.
+- Hypothesis
+- Expected result
+- Config or command
+- Metrics and baselines
+- Result path under `results/`
+- Actual result
+- Conclusion or next decision
 
-## Planned Runs
-
-1. Add the next planned run.
-
-## Result Index
-
-- Add links to result directories or summaries here.
-
-## Decisions And Lessons
-
-- Add concise conclusions here.
+Keep raw logs and bulky outputs in `results/`. Keep only clear conclusions and important links here.

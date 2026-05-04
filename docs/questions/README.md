@@ -1,24 +1,14 @@
 # Research Questions
 
-## Problem Framing
+Use this directory for research directions, limitations, low-hanging fruits, scientific locks, explored paths, and abandoned paths.
 
-- Problem statement: fill during setup or ideation
-- Why it matters: fill during ideation
+Files can stay simple. A note with `# Title` and a few clear bullets is enough.
 
-## Primary Questions
+Useful fields when relevant:
 
-1. Add the main research question.
-
-## Hypotheses
-
-1. Add the first testable hypothesis.
-
-## Evaluation Criteria
-
-- Metrics:
-- Baselines:
-- Evidence needed:
-
-## Open Questions
-
-- None yet.
+- Question or direction
+- Why it matters
+- Hypothesis
+- Expected evidence
+- Limitations or risks
+- Related literature, configs, experiments, or paper sections

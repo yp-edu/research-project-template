@@ -1,34 +1,27 @@
-# Project Memory
+# Project Notes
 
 ## Snapshot
 
 - Project: `research-project-template`
-- Phase: `setup`
+- Phase: setup
 - Status: scaffold only
+- Paper: [`../latex/`](../latex/)
 
-## Research Focus
+## Index
 
-- Main question: fill during setup
-- Contribution hypothesis: fill during ideation
-- Target venue or output: optional
+- Questions and directions: [`questions/`](questions/)
+- Literature notes: [`literature/`](literature/)
+- Experiment plans and conclusions: [`experiments/`](experiments/)
+- Raw outputs: [`../results/`](../results/) untracked
 
-## Key Artifacts
+## TL;DR
 
-- Code: `src/`, `scripts/`
-- Configs: `configs/`
-- Paper: `latex/`
-- Outputs: `results/`
-
-## Memory Index
-
-- Questions and hypotheses: [`questions/README.md`](questions/README.md)
-- Literature memory: [`literature/README.md`](literature/README.md)
-- Experiment memory: [`experiments/README.md`](experiments/README.md)
+- Keep this file short: current state, key decisions, and links.
+- Keep detailed questions in `questions/`, paper notes in `literature/`, and experiment conclusions in `experiments/`.
+- Keep the evolving paper narrative in `latex/`.
 
 ## Next Steps
 
-1. Run `project-setup`.
-
-## Open Questions / Decisions
-
-- None yet.
+1. Set the project identity, package name, and paper title.
+2. Run `uv sync`.
+3. Document the first research direction in `questions/`.

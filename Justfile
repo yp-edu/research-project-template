@@ -53,7 +53,6 @@ retrieve-experiments cluster folder="":
 	if [ -n "{{folder}}" ]; then
 		folders="$folders {{folder}}"
 	fi
-	mkdir -p ./results
 	for folder in $folders; do
 		folder="${folder#results/}"
 		folder="${folder#/}"
@@ -64,13 +63,15 @@ retrieve-experiments cluster folder="":
 				exit 1
 				;;
 		esac
-		echo "Retrieving results/$folder from {{cluster}}..."
-		scp -r "$host:$repo/results/$folder" ./results/
+		mkdir -p "./results/$folder"
+		echo "Syncing results/$folder/ from {{cluster}}..."
+		rsync -a "$host:$repo/results/$folder/" "./results/$folder/"
 	done
 
 clean-experiments folder="":
 	#!/usr/bin/env bash
 	set -euo pipefail
+	shopt -s dotglob nullglob
 	folders="{{result_folders}}"
 	if [ -n "{{folder}}" ]; then
 		folders="$folders {{folder}}"
@@ -85,8 +86,9 @@ clean-experiments folder="":
 				exit 1
 				;;
 		esac
-		echo "Removing results/$folder..."
-		rm -rf "./results/$folder"
+		mkdir -p "./results/$folder"
+		echo "Cleaning results/$folder/*..."
+		rm -rf "./results/$folder"/*
 	done
 
 sync-to cluster:

@@ -32,6 +32,7 @@
 - Push back constructively during ideation and writing: question the value of the work, the likely reviewer objection, and what evidence would make the contribution worth testing or publishing.
 - Convert vague ideas into testable questions by making assumptions, expected evidence, metrics, and decision rules explicit.
 - Prefer defining an experiment before coding: hypothesis, config, metric, baseline or comparison, expected result, and what outcome would change the project direction.
+- Do not run experiments unless explicitly asked; tests and minimal local debug or smoke runs are allowed, but cluster jobs are not.
 - Implement only the code needed to answer the current question.
 - Keep scripts thin and config-driven so the same entrypoint can run locally, in sweeps, and on a cluster.
 - Store experiment configs under `configs/` with names that identify the run without opening raw logs.

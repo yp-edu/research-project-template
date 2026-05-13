@@ -17,22 +17,22 @@ test-assets:
 tests:
 	uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
 
-run-experiment *args:
+run *args:
 	uv run -m scripts.run_experiment {{args}}
 
-launch cluster experiment *args:
-	just run-experiment -m {{args}} \
+dispatch cluster experiment *args:
+	uv run -m scripts.dispatch_experiment -m {{args}} \
 		hydra/launcher={{cluster}} \
 		hydra/sweeper={{experiment}}
 
-sync-experiments clean="":
+wandb-sync clean="":
 	export WANDB__SERVICE_WAIT=300; \
 	uv run wandb sync results/experiments/*/wandb/offline-run-*; \
 	if [ "{{clean}}" = "clean" ]; then \
 		rm -r results/experiments/*/wandb/offline-run-*; \
 	fi
 
-retrieve-experiments cluster folder="":
+retrieve cluster folder="":
 	#!/usr/bin/env bash
 	set -euo pipefail
 	case "{{cluster}}" in
@@ -68,7 +68,7 @@ retrieve-experiments cluster folder="":
 		rsync -a "$host:$repo/results/$folder/" "./results/$folder/"
 	done
 
-clean-experiments folder="":
+clean folder="":
 	#!/usr/bin/env bash
 	set -euo pipefail
 	shopt -s dotglob nullglob

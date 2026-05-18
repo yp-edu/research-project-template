@@ -20,10 +20,18 @@ tests:
 run *args:
 	uv run -m scripts.run_experiment {{args}}
 
-dispatch cluster experiment *args:
-	uv run -m scripts.dispatch_experiment -m {{args}} \
-		hydra/launcher={{cluster}} \
-		hydra/sweeper={{experiment}}
+launch-all dry_run="":
+	#!/usr/bin/env bash
+	set -euo pipefail
+	shopt -s nullglob
+	for job in docs/experiments/to-launch/*.sh; do
+		if [ "{{dry_run}}" = "--dry-run" ] || [ "{{dry_run}}" = "dry-run" ]; then
+			echo "bash ${job}"
+		else
+			bash "${job}"
+		fi
+	done
+	shopt -u nullglob
 
 wandb-sync clean="":
 	export WANDB__SERVICE_WAIT=300; \

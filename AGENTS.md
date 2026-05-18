@@ -34,8 +34,9 @@
 - Prefer defining an experiment before coding: hypothesis, config, metric, baseline or comparison, expected result, and what outcome would change the project direction.
 - Do not run experiments unless explicitly asked; tests and minimal local debug or smoke runs are allowed, but cluster jobs are not.
 - Implement only the code needed to answer the current question.
-- Keep scripts thin and config-driven so the same entrypoint can run locally, in sweeps, and on a cluster.
+- Keep scripts thin and config-driven so the same entrypoint can run locally and inside Slurm jobs.
 - Store experiment configs under `configs/` with names that identify the run without opening raw logs.
+- Store cluster launch definitions as experiment artifacts under `docs/experiments/to-launch/`, then move them to `docs/experiments/archived/` after results are documented.
 - After a run, update the experiment note with actual results, result location, conclusion, and any resulting claim or decision.
 
 ## Python And Runs
@@ -43,7 +44,7 @@
 - Use `uv` for Python work: `uv sync` for installation, `uv add <package>` for dependencies, and `uv run ...` for commands.
 - Do not rely on manual virtualenv activation or `pip install` by default.
 - Run scripts with `uv run`, for example `uv run -m scripts.run_experiment demo=first`.
-- Prefer reusable `just` recipes for common commands: `just checks`, `just tests`, `just run-experiment demo=first`, and cluster launches through `just launch ...`.
+- Prefer reusable `just` recipes for common commands: `just checks`, `just tests`, `just run demo=first`, and `just launch-all --dry-run`.
 - Put stable reusable logic in `src/`; test stable, reusable, or high-risk package logic with `uv run pytest`.
 
 ## Paper

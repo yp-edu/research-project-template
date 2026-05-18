@@ -7,22 +7,28 @@ Run a script with its config:
 uv run -m scripts.run_experiment demo=first
 ```
 
-By default, no script runs. Sweep with:
-
-```bash
-uv run -m scripts.run_experiment -m demo=??? \
-    hydra/sweeper=groups_optuna \
-    hydra/launcher=local
-```
+By default, no script runs.
 """
 
-from loguru import logger
+from __future__ import annotations
+
+from collections.abc import Callable
+from importlib import import_module
+from typing import TypeAlias
+
 import hydra
+from loguru import logger
 from omegaconf import DictConfig, OmegaConf
 
-from scripts.demo import main as run_demo
+ScriptMain: TypeAlias = Callable[[DictConfig], object]
 
-SCRIPTS = {"demo": run_demo}
+SCRIPTS = {"demo": "scripts.demo:main"}
+
+
+def _load_script(target: str) -> ScriptMain:
+    module_name, attribute = target.split(":", maxsplit=1)
+    module = import_module(module_name)
+    return getattr(module, attribute)
 
 
 @hydra.main(config_path="../configs", config_name="run_experiment.yaml", version_base=None)
@@ -37,7 +43,7 @@ def main(cfg: DictConfig):
         raise SystemExit(1)
 
     name = selected[0]
-    SCRIPTS[name](cfg)
+    _load_script(SCRIPTS[name])(cfg)
 
 
 if __name__ == "__main__":

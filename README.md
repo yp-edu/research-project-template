@@ -14,7 +14,7 @@ KISS research project template built for agents.
 - `src/` contains reusable Python package code.
 - `scripts/` contains experiment entrypoints.
 - `configs/` contains experiment configs.
-- `docs/` contains project status, questions, literature, and experiment conclusions.
+- `docs/` contains project status, questions, literature, experiment conclusions, and Slurm launch artifacts.
 - `latex/` contains the paper.
 - `results/` is untracked scratch space for logs, outputs, checkpoints, and generated artifacts.
 - `AGENTS.md` contains the operational guidelines.
@@ -36,13 +36,14 @@ uv tool install rust-just
 just install
 just checks
 just tests
-just run-experiment demo=first
+just run demo=first
 ```
 
-Cluster or sweep launch recipe:
+Slurm launch recipes:
 
 ```bash
-just launch jz_t4 groups_optuna demo=first
+bash docs/experiments/to-launch/example.sh
+just launch-all --dry-run
 ```
 
 ## LaTeX

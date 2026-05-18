@@ -1,6 +1,0 @@
-defaults:
-  - basic
-
-max_batch_size: 2
-params:
-  ++downstream.set.demo: choice(first, base)

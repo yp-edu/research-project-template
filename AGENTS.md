@@ -12,7 +12,7 @@
 - `src/` contains reusable package code.
 - `scripts/` contains runnable experiment entrypoints.
 - `configs/` contains reproducible experiment configuration.
-- `docs/` contains project memory: status, questions, claims, decisions, literature, and experiment conclusions.
+- `docs/` contains project memory: status, questions, claims, decisions, reviews, literature, and experiment conclusions.
 - `latex/` contains the paper and bibliography.
 - `results/` is untracked scratch space for raw logs, outputs, checkpoints, generated artifacts, and bulky run data.
 - `notebooks/` is for exploration; move reusable logic to `src/` and reproducible runs to `scripts/` plus `configs/`.
@@ -23,6 +23,7 @@
 - Every first-level folder under `docs/` has its own `AGENTS.md` with local documentation rules.
 - `docs/*/README.md` files are category dashboards; they start with only a title and grow into linked status lists and factual summaries, not instructions.
 - Research questions should converge to a claim, a decision to defer or cancel, or an experiment that can answer them.
+- Claims should link to evidence and limitations; decisions should record research trade-offs that affect direction, validity, scope, experiments, or paper text.
 - Experiments should record conclusions after they run; raw outputs stay in `results/`.
 - Link docs, configs, scripts, results, and paper sections when the link improves traceability.
 
@@ -30,6 +31,7 @@
 
 - Treat ideation as collaborative and supervisor-led unless asked otherwise.
 - Push back constructively during ideation and writing: question the value of the work, the likely reviewer objection, and what evidence would make the contribution worth testing or publishing.
+- Before building or writing from ambiguous research intent, reach agreement on the question, expected evidence, reviewer objection, and next artifact.
 - Convert vague ideas into testable questions by making assumptions, expected evidence, metrics, and decision rules explicit.
 - Prefer defining an experiment before coding: hypothesis, config, metric, baseline or comparison, expected result, and what outcome would change the project direction.
 - Do not run experiments unless explicitly asked; tests and minimal local debug or smoke runs are allowed, but cluster jobs are not.

@@ -10,6 +10,9 @@
 ## Index
 
 - Questions: [`questions/`](questions/)
+- Claims: [`claims/`](claims/)
+- Decisions: [`decisions/`](decisions/)
+- Reviews: [`reviews/`](reviews/)
 - Literature: [`literature/`](literature/)
 - Experiments: [`experiments/`](experiments/)
 - Raw outputs: [`../results/`](../results/) untracked

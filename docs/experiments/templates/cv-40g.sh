@@ -17,6 +17,7 @@ if [[ -z "${SLURM_JOB_ID:-}" ]]; then
     exec sbatch "$0"
 fi
 
+module purge
 source ./secret-env.sh
 
 mkdir -p results/experiments results/slurm

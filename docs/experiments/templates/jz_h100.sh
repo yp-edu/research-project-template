@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=<job_name>
+#SBATCH --account=<project>@h100
 #SBATCH --cpus-per-task=24
 #SBATCH --gres=gpu:1
 #SBATCH --partition=gpu_p6
@@ -15,10 +16,10 @@ set -euo pipefail
 
 if [[ -z "${SLURM_JOB_ID:-}" ]]; then
     mkdir -p results/slurm
-    source ./secret-env.sh
-    exec sbatch --account="${IDRPROJ:?set IDRPROJ in secret-env.sh}@h100" "$0"
+    exec sbatch "$0"
 fi
 
+module purge
 module load arch/h100
 source ./secret-env.sh
 

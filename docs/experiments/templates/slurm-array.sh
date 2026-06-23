@@ -9,7 +9,7 @@
 #SBATCH --mail-type=FAIL
 #SBATCH --qos=short
 #SBATCH --time=10:00:00
-#SBATCH --array=<first-last%max_concurrent>
+#SBATCH --array=<start-end%max_concurrent>
 
 set -euo pipefail
 
@@ -28,9 +28,9 @@ export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-7}"
 export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-7}"
 
 RUNS=(
-    "demo=first seed=0"
-    "demo=first seed=1"
-    "demo=first seed=2"
+    "demo=2026-06-23-smoke seed=0"
+    "demo=2026-06-23-smoke seed=1"
+    "demo=2026-06-23-smoke seed=2"
 )
 
 if [ "$SLURM_ARRAY_TASK_ID" -ge "${#RUNS[@]}" ]; then

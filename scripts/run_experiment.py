@@ -4,7 +4,7 @@ Orchestrator for experiment scripts.
 Run a script with its config:
 
 ```bash
-uv run -m scripts.run_experiment demo=first
+uv run -m scripts.run_experiment demo=2026-06-23-smoke
 ```
 
 By default, no script runs.

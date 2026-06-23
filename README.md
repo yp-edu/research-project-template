@@ -26,7 +26,7 @@ Python environment and package commands:
 ```bash
 uv sync
 uv add <package>
-uv run -m scripts.run_experiment demo=first
+uv run -m scripts.run_experiment demo=2026-06-23-smoke
 ```
 
 Reusable recipes:
@@ -36,7 +36,7 @@ uv tool install rust-just
 just install
 just checks
 just tests
-just run demo=first
+just run demo=2026-06-23-smoke
 ```
 
 Slurm launch recipes:

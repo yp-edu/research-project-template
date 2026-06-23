@@ -4,9 +4,10 @@
 
 - `docs/` is the project memory: current status, questions, claims, decisions, reviews, literature, experiment plans, and experiment conclusions.
 - `docs/README.md` is the project-status dashboard.
-- First-level folders under `docs/` have their own `AGENTS.md` files for local rules.
+- Top-level folders under `docs/` have their own `AGENTS.md` files for local rules.
 - Category `README.md` files are dashboards; they start with only a title and grow into linked status lists and factual summaries.
 - Detailed notes live in dedicated files; the category `README.md` links them as `[item](item.md): Pending` until the item has a conclusion, claim, decision, or other outcome.
+- Detailed notes use `YYYY-MM-DD-short-title.md` with lowercase kebab-case after the date.
 - Raw logs, checkpoints, generated files, and bulky outputs stay in `results/`.
 
 ## Style

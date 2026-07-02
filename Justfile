@@ -17,8 +17,8 @@ test-assets:
 tests:
 	uv run pytest tests --cov=src --cov-report=term-missing --cov-fail-under=50 -s -v
 
-run *args:
-	uv run -m scripts.run_experiment {{args}}
+run script="demo" config="base" *args:
+	uv run -m scripts.{{script}} --config-name {{config}} {{args}}
 
 launch-all dry_run="":
 	#!/usr/bin/env bash

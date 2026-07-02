@@ -12,8 +12,8 @@ KISS research project template built for agents.
 ## Layout
 
 - `src/` contains reusable Python package code.
-- `scripts/` contains experiment entrypoints.
-- `configs/` contains experiment configs.
+- `scripts/` contains independent experiment entrypoints.
+- `configs/` contains one config folder per script, for example `configs/demo/`.
 - `docs/` contains project status, questions, literature, experiment conclusions, and Slurm launch artifacts.
 - `latex/` contains the paper.
 - `results/` is untracked scratch space for logs, outputs, checkpoints, and generated artifacts.
@@ -26,7 +26,7 @@ Python environment and package commands:
 ```bash
 uv sync
 uv add <package>
-uv run -m scripts.run_experiment demo=2026-06-23-smoke
+uv run -m scripts.demo --config-name 2026-06-23-smoke
 ```
 
 Reusable recipes:
@@ -36,7 +36,7 @@ uv tool install rust-just
 just install
 just checks
 just tests
-just run demo=2026-06-23-smoke
+just run demo 2026-06-23-smoke
 ```
 
 Slurm launch recipes:

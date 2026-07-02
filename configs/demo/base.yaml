@@ -3,3 +3,18 @@ defaults:
 
 x: 0
 y: 0
+seed: 0
+steps: 3
+sleep_seconds: 0
+output_dir: results/experiments/demo
+
+wandb:
+  project: research-project-template
+  entity: null
+  mode: offline
+
+hydra:
+  run:
+    dir: results/hydra/demo/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: results/hydra/demo_sweep/${now:%Y-%m-%d_%H-%M-%S}

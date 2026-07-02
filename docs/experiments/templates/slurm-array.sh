@@ -28,9 +28,9 @@ export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-7}"
 export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-7}"
 
 RUNS=(
-    "--config-name 2026-06-23-smoke seed=0"
-    "--config-name 2026-06-23-smoke seed=1"
-    "--config-name 2026-06-23-smoke seed=2"
+    "<config> seed=0"
+    "<config> seed=1"
+    "<config> seed=2"
 )
 
 if [ "$SLURM_ARRAY_TASK_ID" -ge "${#RUNS[@]}" ]; then
@@ -38,6 +38,6 @@ if [ "$SLURM_ARRAY_TASK_ID" -ge "${#RUNS[@]}" ]; then
     exit 1
 fi
 
-uv run -m scripts.demo \
+just run <experiment> \
     ${RUNS[$SLURM_ARRAY_TASK_ID]} \
-    hydra.run.dir="results/hydra/<experiment_name>/${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}"
+    hydra.run.dir="results/hydra/<experiment>/${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}"

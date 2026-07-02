@@ -29,4 +29,4 @@ export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 
-<experiment_command>
+just run <experiment> <config>

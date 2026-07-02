@@ -1,9 +1,0 @@
-defaults:
-  - base
-  - _self_
-
-x: -5
-y: 10
-seed: 0
-steps: 3
-sleep_seconds: 0

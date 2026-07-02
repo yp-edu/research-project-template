@@ -46,8 +46,8 @@
 
 - Use `uv` for Python work: `uv sync` for installation, `uv add <package>` for dependencies, and `uv run ...` for commands.
 - Do not rely on manual virtualenv activation or `pip install` by default.
-- Run scripts with `uv run`, for example `uv run -m scripts.demo --config-name 2026-06-23-smoke`.
-- Prefer reusable `just` recipes for common commands: `just checks`, `just tests`, `just run demo 2026-06-23-smoke`, and `just launch-all --dry-run`.
+- Run scripts with `uv run`, for example `uv run -m scripts.<experiment> --config-name <config>`.
+- Prefer reusable `just` recipes for common commands: `just checks`, `just tests`, `just run <experiment> <config>`, and `just launch-all --dry-run`.
 - Put stable reusable logic in `src/`; test stable, reusable, or high-risk package logic with `uv run pytest`.
 
 ## Paper

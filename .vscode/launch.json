@@ -26,11 +26,12 @@
             "name": "Run Experiment",
             "type": "debugpy",
             "request": "launch",
-            "module": "scripts.run_experiment",
+            "module": "scripts.<experiment>",
             "console": "integratedTerminal",
             "justMyCode": false,
             "args": [
-                "demo=2026-06-23-smoke"
+                "--config-name",
+                "<config>"
             ]
         }
     ]

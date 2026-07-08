@@ -2,7 +2,7 @@
 
 ## Scope
 
-- `docs/` is the project memory: current status, questions, claims, decisions, reviews, literature, experiment plans, and experiment conclusions.
+- `docs/` is the project memory: current status, questions, claims, decisions, reviews, literature, experiment plans, experiment conclusions, and presentations.
 - `docs/README.md` is the project-status dashboard.
 - Top-level folders under `docs/` have their own `AGENTS.md` files for local rules.
 - Category `README.md` files are dashboards; they start with only a title and grow into linked status lists and factual summaries.

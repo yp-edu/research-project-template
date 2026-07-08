@@ -15,6 +15,7 @@
 - Reviews: [`reviews/`](reviews/)
 - Literature: [`literature/`](literature/)
 - Experiments: [`experiments/`](experiments/)
+- Presentations: [`presentations/`](presentations/)
 - Raw outputs: [`../results/`](../results/) untracked
 
 ## Current Claims

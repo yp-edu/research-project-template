@@ -14,7 +14,7 @@
 - `configs/` contains reproducible experiment configuration.
 - `docs/` contains project memory: status, questions, claims, decisions, reviews, literature, experiment conclusions, and presentations.
 - `latex/` contains the paper and bibliography.
-- `results/` is untracked scratch space for raw logs, outputs, checkpoints, generated artifacts, and bulky run data.
+- `results/` is the only location for generated research artifacts, including raw logs, outputs, checkpoints, rendered presentations, and bulky run data.
 - `notebooks/` is for exploration; move reusable logic to `src/` and reproducible runs to `scripts/` plus `configs/`.
 
 ## Documentation
@@ -25,8 +25,8 @@
 - Detailed docs use date-based kebab-case filenames, e.g. `2026-06-23-baseline-sanity.md`.
 - Research questions should converge to a claim, a decision to defer or cancel, or an experiment that can answer them.
 - Claims should link to evidence and limitations; decisions should record research trade-offs that affect direction, validity, scope, experiments, or paper text.
-- Experiments should record conclusions after they run; raw outputs stay in `results/`.
-- Presentations should use committed markdown sources when possible and link back to the docs, configs, results, and paper sections they summarize.
+- Experiments should record conclusions after they run; all generated experiment artifacts stay in `results/`.
+- Presentations should use committed markdown sources when possible and link back to the docs, configs, results, and paper sections they summarize; generated exports and renders belong in `results/`.
 - Link docs, configs, scripts, results, and paper sections when the link improves traceability.
 
 ## Ideation And Experiments

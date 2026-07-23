@@ -8,6 +8,6 @@
 - Keep each deck anchored to evidence: link the questions, claims, decisions, experiments, literature notes, results, configs, scripts, and paper sections it summarizes.
 - Make the audience and purpose explicit near the top of each source: project update, supervisor meeting, lab talk, conference draft, rebuttal, or internal decision.
 - Separate factual status from interpretation. Do not turn weak or preliminary results into stronger claims than the linked evidence supports.
-- Keep generated slide exports small and intentional if committed here; put bulky, repeated, or scratch renders under `results/`.
+- Keep presentation sources in this folder. Generate all slide exports, rendered previews, and other presentation artifacts under `results/`, and do not create `output/` or `outputs/` directories.
 - Keep category-level summaries in `README.md` factual; leave it title-only until there is something real to summarize.
 - Track presentation files from the category dashboard as `[presentation](YYYY-MM-DD-presentation-title.md): Draft`, then replace `Draft` with the delivery status, resulting decision, or linked follow-up.

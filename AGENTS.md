@@ -25,7 +25,7 @@
 - Detailed docs use date-based kebab-case filenames, e.g. `2026-06-23-baseline-sanity.md`.
 - Research questions should converge to a claim, a decision to defer or cancel, or an experiment that can answer them.
 - Claims should link to evidence and limitations; decisions should record research trade-offs that affect direction, validity, scope, experiments, or paper text.
-- Experiments should record conclusions after they run; all generated experiment artifacts stay in `results/`.
+- Experiments should record enough provenance to reproduce or retrieve untracked results, plus conclusions after they run; all generated experiment artifacts stay in `results/`.
 - Presentations should use committed markdown sources when possible and link back to the docs, configs, results, and paper sections they summarize; generated exports and renders belong in `results/`.
 - Link docs, configs, scripts, results, and paper sections when the link improves traceability.
 
@@ -41,7 +41,7 @@
 - Keep scripts thin, independent, and config-driven so the same script can run locally and inside Slurm jobs.
 - Prefer one runnable workflow per file in `scripts/`; store its configs under the matching `configs/<script-name>/` folder with names that identify the run without opening raw logs.
 - Store cluster launch definitions as date-based experiment artifacts under `docs/experiments/to-launch/`, then move them to `docs/experiments/archived/` after results are documented.
-- After a run, update the experiment note with actual results, result location, conclusion, and any resulting claim or decision.
+- After a run, update the experiment note with the exact code commit, config and command, seeds, data and model versions, material environment or hardware details, result location or retrieval process, actual results, conclusion, and any resulting claim or decision.
 
 ## Python And Runs
 

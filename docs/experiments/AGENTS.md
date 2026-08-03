@@ -1,8 +1,8 @@
 # Experiment Guidance
 
 - Experiment notes connect a research question to evidence.
-- Before a run, record the question, hypothesis, config or command, exact launch script, metric, baseline or comparison, expected result, and decision rule when they are known.
-- After a run, record the actual result, result location under `results/`, conclusion, and any resulting claim or decision.
+- Before a run, record the question, hypothesis, config and command, exact launch script, metric, baseline or comparison, expected result, and decision rule when they are known.
+- After a run, record the exact code commit, config and command, seeds, data and model versions, material environment or hardware details, actual result, limitations, conclusion, and any resulting claim or decision.
 - Generate all experiment artifacts under `results/`, including raw logs, checkpoints, metrics, figures, and rendered outputs; do not create `output/` or `outputs/` directories.
 - Keep conclusions and important links here. Copy only publication-ready figures into `latex/` when the paper needs to track them as sources.
 - Prefer reusable logic in `src/`, thin independent entrypoints in `scripts/`, and committed run definitions in `configs/<script-name>/`.
